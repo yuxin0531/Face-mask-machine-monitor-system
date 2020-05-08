@@ -1,0 +1,483 @@
+// 最外层背景图盒子样式
+#bgi-wrap {
+    background: url("../img/bigBgi.png") no-repeat;
+    width: 1920px;
+    height: 1080px;
+
+    //头部盒子,存放logo,文字和时间样式
+    .head-wrap {
+        width: 100%;
+        height: 113px;
+        position: relative;
+
+        // logo和标题样式
+        .title-wrap {
+            width: 820px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+
+            // logo样式
+            #logo {
+                float: left;
+                margin-right: 20px;
+
+                img {
+                    width: 100px;
+                }
+            }
+
+            // 标题样式
+            .title {
+                font-size: 50px;
+                float: left;
+            }
+
+        }
+
+        //时间盒子样式
+        .time-wrap {
+            position: absolute;
+            right: 36px;
+            top: 22px;
+            font-size: 16px;
+        }
+
+    }
+
+    // 头部结束
+
+
+    // 主体部分
+    .main-wrap {
+        width: 1843px;
+        height: 950px;
+        margin-left: 32px;
+
+        // 主体左侧部分
+        .main-left-wrap {
+            height: 927px;
+            width: 554px;
+            float: left;
+
+            // 生产数量
+            .output-wrap {
+                width: 451px;
+                height: 497px;
+                margin: 47px 0 0 44px;
+
+                // kn95标题
+                .kn-output-title,
+                .output-title {
+                    margin-left: 35px;
+                }
+
+                // kn95数量
+                .kn-output-num,
+                .output-num {
+                    height: 228px;
+                    font-size: 80px;
+                    line-height: 218px;
+                    text-align: center;
+                    color: #3ed3e0;
+                    position: relative;
+
+                    // kn95单位
+                    .kn-output-unit,
+                    .output-unit {
+                        font-size: 16px;
+                        position: absolute;
+                        top: 50px;
+                        right: 36px;
+                    }
+                }
+
+                // kn95结束
+
+                // 平面口罩
+                .output-num {
+                    height: 240px;
+                    line-height: 240px;
+                }
+
+            }
+
+            // 入库数量图表容器
+            .stock-chart-warp {
+                height: 383px;
+                margin-top: 2px;
+
+                // 出入库标题
+                .stock-chart-title {
+                    margin-left: 74px;
+                }
+
+                // 图表位置
+                .stock-chart {
+                    margin-top: 22px;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        // 主体中间部分
+        .main-center-wrap {
+            height: 920px;
+            width: 810px;
+            float: left;
+            margin-top: 39px;
+
+            // 两个监控
+            .monitoring-wrap {
+                box-sizing: border-box;
+                padding: 10px;
+                width: 726px;
+                height: 260px;
+                display: flex;
+                justify-content: space-between;
+
+                .monitoring-one,
+                .monitoring-two {
+                    width: 319px;
+                    height: 240px;
+                }
+            }
+
+            // 设备稼动率图表盒子
+            .equipment-chart-wrap {
+                width: 760px;
+                height: 298px;
+                margin-top: 36px;
+
+                // 图表标题
+                .equipment-chart-title {
+                    margin-left: 34px;
+                    margin-bottom: 21px;
+                }
+
+                //设备稼动率图表图例
+                .legend-wrap {
+                    width: 760px;
+                    height: 20px;
+                    position: absolute;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .legend {
+                    display: flex;
+                    width: 180px;
+                    height: 16px;
+                    justify-content: space-between;
+                    position: absolute;
+                    z-index: 2;
+
+                    // 运行和停机
+                    .run,
+                    .stop {
+                        display: flex;
+                        height: 20px;
+                        width: 80px;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        // 文字
+                        p {
+                            height: 20px;
+                            font-size: 14px;
+                        }
+
+                        // 色块
+                        .skyblue,
+                        .blue {
+                            width: 10px;
+                            height: 10px;
+                            background-color: #50a4db;
+                        }
+
+                        .blue {
+                            background-color: #336db4;
+                        }
+                    }
+
+
+
+                }
+
+                // 设备稼动率图表
+                .equipment-chart {
+                    width: 750px;
+                    height: 212px;
+                    display: flex;
+                    flex: 1;
+
+                    .chartOne {
+                        flex: 1;
+                    }
+
+                    .chartTwo {
+                        flex: 1;
+                    }
+
+                    .chartThree {
+                        flex: 1;
+                    }
+
+                    .chartFour {
+                        flex: 1;
+                    }
+                }
+            }
+
+            // 口罩产量图表盒子
+            .output-chart-wrap {
+                height: 294px;
+                width: 744px;
+                display: flex;
+                justify-content: space-between;
+
+                // kn95口罩机产量图表
+                .knoutput-chart-wrap {
+                    width: 416px;
+                    height: 100%;
+                    margin-left: 28px;
+
+                    .knoutput-chart-title {
+                        margin-left: 6px;
+                        margin-bottom: 34px;
+                    }
+
+                    .knoutput-chart {
+                        width: 418px;
+                        height: 216px;
+
+                    }
+                }
+
+                // 平面口罩机产量图表
+
+                .pmoutput-chart-wrap {
+                    width: 303px;
+                    height: 264px;
+
+                    .pmoutput-chart-title {
+                        margin-left: 55px;
+                        margin-bottom: 47px;
+                    }
+
+                    .pmoutput-chart {
+                        width: 307px;
+                        height: 197px;
+                    }
+
+                    .pmoutput-chart-one,
+                    .pmoutput-chart-two,
+                    .pmoutput-chart-three {
+                        width: 304px;
+                        height: 46px;
+                        margin-bottom: 32px;
+                    }
+                }
+            }
+
+
+
+        }
+
+        // 主体右侧部分
+        .main-right-wrap {
+            height: 920px;
+            float: left;
+            width: 479px;
+
+            // 监控列表
+            .monitoring-list-wrap {
+                margin-top: 47px;
+                width: 458px;
+                height: 256px;
+
+                // 监控标题
+                .monitoring-title {
+                    margin-left: 34px;
+                }
+
+                .monitoring-main-wrap {
+                    width: 438px;
+                    height: 181px;
+                    margin-left: 23px;
+                    margin-top: 30px;
+
+                    // 监控列表标题
+                    .monitoring-main-title {
+                        display: flex;
+                        margin-left: 66px;
+                        margin-bottom: 20px;
+
+                        .monitoring-name {
+                            margin-right: 95px;
+                        }
+                    }
+
+                    // 监控列表主体
+                    .monitoring-main {
+                        width: 438px;
+                        height: 146px;
+                        overflow-y:auto;
+                        
+                        // 3-7监控
+                        .monitoring-three,
+                        .monitoring-four,
+                        .monitoring-five,
+                        .monitoring-six,
+                        .monitoring-seven {
+                            display: flex;
+                            align-items: space-between;
+                            
+                            // justify-content: flex-start;
+                            li {
+                                margin-bottom: 8px;
+                            }
+
+                            .serial {
+                                margin-right: 65px
+                            }
+
+                            .name {
+                                margin-right: 95px;
+                            }
+                        }
+                    }
+
+
+
+
+                }
+
+            }
+
+            // 车间环境
+            .environment-chart-wrap {
+                width: 427px;
+                height: 192px;
+
+                .environment-title {
+                    margin-left: 34px;
+                    // margin-bottom: 10px;
+                }
+
+                // 图表外层
+                .environment-chart {
+                    margin-left: 23px;
+                    height: 160px;
+                    width: 423px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    // 3个图表
+                    .environment-chart-one,
+                    .environment-chart-two,
+                    .environment-chart-three {
+                        width: 120px;
+                        height: 160px;
+                    }
+                }
+            }
+
+            // 单位产量
+            .perUnitOutput-chart-wrap {
+                height: 254px;
+                width: 422px;
+
+                .perUnitOutput-chart-title {
+                    margin-left: 34px;
+                    margin-bottom: 32px;
+                }
+
+                // kn95和平面口罩机产量图表盒子
+                .perUnitOutput-chart {
+                    height: 160px;
+                    width: 385px;
+                    margin-left: 30px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    // kn95和平面口罩机产量图表容器
+                    .perUnitOutput-chart-one,
+                    .perUnitOutput-chart-two {
+                        height: 160px;
+                        width: 167px;
+
+                    }
+                }
+
+                // 图表主题
+                .gauge-label-wrap {
+                    width: 385px;
+                    height: 26px;
+                    margin-left: 30px;
+                    display: flex;
+                    justify-content: space-between
+                }
+
+                // 图表主题
+                .kn-gauge-label,
+                .pm-gauge-label {
+                    width: 166px;
+                    height: 100%;
+                    text-align: center;
+                }
+            }
+
+
+            // 人均产量
+            .perCapitaOutput-wrap {
+                width: 440px;
+                height: 172px;
+
+                // 人均产量标题
+                .perCapitaOutput-title {
+                    margin-left: 34px;
+                }
+
+                // 主体
+                .perCapitaOutput-main {
+                    width: 440px;
+                    height: 94px;
+                    margin-top: 60px;
+                    display: flex;
+                    flex-direction:column;
+                    align-items:center;
+
+                    .perCapitaOutput-num {
+                        width: 367px;
+                        // height: 34px;
+                        display: flex;
+                        justify-content: space-between;
+                        font-size:40px;
+                        color:#3ed3e0;
+                        margin-bottom: 20px;
+                    }
+
+                    .perCapitaOutput-label {
+                        width: 340px;
+                        height: 18px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .perCapitaOutput-unit{
+                            color:#3ed3e0;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+// 滚动条样式设置
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background-color:#3c5276;}
+::-webkit-scrollbar-thumb{background-color:#fff;}

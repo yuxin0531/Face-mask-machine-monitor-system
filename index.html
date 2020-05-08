@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="./less/index.less">
+    <link rel="stylesheet/less" type="text/css" href="./less/base.less">
+    <!-- <link rel="stylesheet/css" type="text/css" href="./less/base.css">
+    <link rel="stylesheet/css" type="text/css" href="./less/index.css"> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/myEchart.js"></script>
+    <script type="text/javascript" src="./js/time.js"></script>
+    <script type="text/javascript" src="./js/ajax.js"></script>
+    <!-- <script type="text/javascript" src="./js/getData.js"></script> -->
+</head>
+<body>
+    <!-- 面板背景 -->
+    <div id="bgi-wrap">
+        <!-- 头部 -->
+        <div class="head-wrap">
+            <!-- logo和标题 -->
+            <div class="title-wrap">
+                <div id="logo">
+                    <img src="./img/logo.png" alt="">
+                </div>
+                <div class="title">捷圣智能科技实时数据监控系统</div>
+            </div>
+            <!-- 时间 -->
+            <div class="time-wrap">
+                <div class="time"></div>
+            </div>
+        </div>
+        <!-- 头部结束 -->
+        <!-- 主体部分-->
+        <div class="main-wrap">
+            <div class="main-left-wrap">
+                <!-- h497 w436 -->
+                <div class="output-wrap">
+                    <!-- kn95口罩 -->
+                    <p class="kn-output-title bold">
+                        KN95口罩生产数量
+                    </p>
+                    <div class="kn-output-num">
+                        2689205
+                        <i class="kn-output-unit">个</i>
+                    </div>
+                    <!-- 平面口罩 -->
+                    <p class="output-title ">
+                        <p class="output-title bold">
+                            平面口罩生产数量
+                        </p>
+                        <div class="output-num">
+                            5689205
+                            <i class="output-unit">个</i>
+                        </div>
+                </div>
+                <!-- 入库数量图表 -->
+                <div class="stock-chart-warp">
+                    <div class="stock-chart-title bold">口罩入库数量</div>
+                    <div class="stock-chart" style="width: 444px;height:344px;">
+
+                    </div>
+                </div>
+            </div>
+            <!-- 主体中间部分 -->
+            <div class="main-center-wrap">
+                <!-- 监控盒子 -->
+                <div class="monitoring-wrap">
+                    <!-- 监控1 -->
+                    <div class="monitoring-one"></div>
+                    <!-- 监控2 -->
+                    <div class="monitoring-two"></div>
+                </div>
+                <!-- 设备稼动率图表 -->
+                <div class="equipment-chart-wrap">
+                    <div class="equipment-chart-title bold">设备稼动率</div>
+                    <div class="legend-wrap">
+                        <div class="legend">
+                            <div class="run">
+                                <p>运行时间</p>
+                                <div class="skyblue"></div>
+                            </div>
+                            <div class="stop">
+                                <p>停机时间</p>
+                                <div class="blue"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="equipment-chart">
+                        <div class="chartOne"></div>
+                        <div class="chartTwo"></div>
+                        <div class="chartThree"></div>
+                        <div class="chartFour"></div>
+                    </div>
+
+                </div>
+                <!-- 生量图表 -->
+                <div class="output-chart-wrap">
+                    <!-- kn95 -->
+                    <div class="knoutput-chart-wrap">
+                        <div class="knoutput-chart-title bold">KN95口罩产量</div>
+                        <div class="knoutput-chart"></div>
+                    </div>
+                    <!-- 平面 -->
+                    <div class="pmoutput-chart-wrap">
+                        <div class="pmoutput-chart-title bold">平面口罩机产量</div>
+                        <div class="pmoutput-chart">
+                            <div class="pmoutput-chart-one"></div>
+                            <div class="pmoutput-chart-two"></div>
+                            <div class="pmoutput-chart-three"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 主体右侧 -->
+            <div class="main-right-wrap">
+                <!-- 监控列表 -->
+                <div class="monitoring-list-wrap">
+                    <div class="monitoring-title bold">摄像头选择列表</div>
+                    <div class="monitoring-main-wrap">
+                        <ul class="monitoring-main-title">
+                            <li class="monitoring-name">摄像头名称</li>
+                            <li class="monitoring-position">安装位置</li>
+                        </ul>
+                        <div class="monitoring-main">
+                            <!-- <ul class="monitoring-three">
+                                <li class="serial">③</li>
+                                <li class="name">摄像头3</li>
+                                <li>洁净车间入口</li>
+                            </ul>
+                            <ul class="monitoring-four">
+                                <li class="serial">④</li>
+                                <li class="name">摄像头4</li>
+                                <li>洁净车间东侧角落</li>
+                            </ul>
+                            <ul class="monitoring-five">
+                                <li class="serial">⑤</li>
+                                <li class="name">摄像头5</li>
+                                <li>洁净车间成品入库处</li>
+                            </ul>
+                            <ul class="monitoring-six">
+                                <li class="serial">⑥</li>
+                                <li class="name">摄像头6</li>
+                                <li>洁净车间KN95口罩生产区</li>
+                            </ul>
+                            <ul class="monitoring-seven">
+                                <li class="serial">⑦</li>
+                                <li class="name">摄像头7</li>
+                                <li>洁净车间平面口罩生成区</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 车间环境 -->
+                <div class="environment-chart-wrap">
+                    <div class="environment-title bold">车间环境</div>
+                    <div class="environment-chart">
+                        <div class="environment-chart-one"></div>
+                        <div class="environment-chart-two"></div>
+                        <div class="environment-chart-three"></div>
+                    </div>
+                </div>
+                <!-- 单位产量 -->
+                <div class="perUnitOutput-chart-wrap">
+                    <div class="perUnitOutput-chart-title bold">单位产量</div>
+                    <div class="perUnitOutput-chart">
+                        <div class="perUnitOutput-chart-one"></div>
+                        <div class="perUnitOutput-chart-two"></div>
+                    </div>
+                    <!-- 图表主题 -->
+                    <div class="gauge-label-wrap">
+                        <div class="kn-gauge-label">KN95</div>
+                        <div class="pm-gauge-label">平面</div>
+                    </div>
+                </div>
+                <!-- 人均产量 -->
+                <!-- 440 172 -->
+                <div class="perCapitaOutput-wrap">
+                    <!-- 人均产量标题 -->
+                    <div class="perCapitaOutput-title bold">人均产量</div>
+                    <!-- 人均产量主体内容 -->
+                    <div class="perCapitaOutput-main">
+                        <!-- 367 94 -->
+                        <!-- 平面口罩和kn95口罩人均产量 -->
+                        <div class="perCapitaOutput-num">
+                            <div class="kn-num">215</div>
+                            <div class="pm-num">358</div>
+                            <!--367 34 -->
+                        </div>
+                        <!-- kn95口罩标识,单位标识,平面口罩标识 -->
+                        <div class="perCapitaOutput-label">
+                            <div class="kn-perCapitaOutput">KN95口罩</div>
+                            <div class="perCapitaOutput-unit">个/时</div>
+                            <div class="pm-perCapitaOutput">平面口罩</div>
+                            <!-- 340 18-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
