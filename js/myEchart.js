@@ -5,16 +5,14 @@ $(function () {
     var equipmentChartTwo = echarts.init(document.getElementsByClassName('chartTwo')[0]);
     var equipmentChartThree = echarts.init(document.getElementsByClassName('chartThree')[0]);
     var equipmentChartFour = echarts.init(document.getElementsByClassName('chartFour')[0]);
-    var knoutputChartr = echarts.init(document.getElementsByClassName('knoutput-chart')[0]);
-    var pmoutputChartrOne = echarts.init(document.getElementsByClassName('pmoutput-chart-one')[0]);
-    var pmoutputChartrTwo = echarts.init(document.getElementsByClassName('pmoutput-chart-two')[0]);
-    var pmoutputChartrThree = echarts.init(document.getElementsByClassName('pmoutput-chart-three')[0]);
+    var knoutputChart = echarts.init(document.getElementsByClassName('knoutput-chart')[0]);
+    var pmoutputChart = echarts.init(document.getElementsByClassName('pmoutput-chart')[0]);
     var environmentChartOne = echarts.init(document.getElementsByClassName('environment-chart-one')[0]);
     var environmentChartTwo = echarts.init(document.getElementsByClassName('environment-chart-two')[0]);
     var environmentChartThree = echarts.init(document.getElementsByClassName('environment-chart-three')[0]);
     var perUnitOutputChartOne = echarts.init(document.getElementsByClassName('perUnitOutput-chart-one')[0]);
-    var perUnitOutputCharTwo = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
-    // 入库数量图表
+    var perUnitOutputChartTwo = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
+    // 口罩入库数量图表
     maskOption = {
         legend: {
             data: ['实际入库', '目标入库'],
@@ -157,10 +155,10 @@ $(function () {
                 lineHeight: 0
             }
         },
-        // tooltip: {
-        //     trigger: 'item',
-        //     formatter: '{a} <br/>{b} : {c} ({d}%)'
-        // },
+        tooltip: {
+            // trigger: 'item',
+            formatter: '时间 :<br/>{c}分钟'
+        },
         // legend: {
         //     left: 'left',
         //     textStyle: { // 图列内容样式
@@ -222,10 +220,10 @@ $(function () {
                 lineHeight: 0
             }
         },
-        // tooltip: {
-        //     trigger: 'item',
-        //     formatter: '{a} <br/>{b} : {c} ({d}%)'
-        // },
+        tooltip: {
+            // trigger: 'item',
+            formatter: '时间 :<br/>{c}分钟'
+        },
         // legend: {
         //     left: 'left',
         //     textStyle: { // 图列内容样式
@@ -287,10 +285,10 @@ $(function () {
                 lineHeight: 0
             }
         },
-        // tooltip: {
-        //     trigger: 'item',
-        //     formatter: '{a} <br/>{b} : {c} ({d}%)'
-        // },
+        tooltip: {
+            // trigger: 'item',
+            formatter: '时间 :<br/>{c}分钟'
+        },
         // legend: {
         //     left: 'left',
         //     textStyle: { // 图列内容样式
@@ -352,10 +350,10 @@ $(function () {
                 lineHeight: 0
             }
         },
-        // tooltip: {
-        //     trigger: 'item',
-        //     formatter: '{a} <br/>{b} : {c} ({d}%)'
-        // },
+        tooltip: {
+            // trigger: 'item',
+            formatter: '时间 :<br/>{c}分钟'
+        },
         // legend: {
         //     left: 'left',
         //     textStyle: { // 图列内容样式
@@ -539,383 +537,540 @@ $(function () {
 
 
     // 平面口罩产量
-    let positionLeft = 1,
-        max = 100 + 39000 * positionLeft,
-        value = 34501;
-    // 1
-    pmoutputOptionOne = {
+    pmoutputOption = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+    
         grid: {
-
-            top: "30%",
-            right: "0",
-            bottom: "0",
-
+            left: '0%',
+            right: '0%',
+            // bottom: '0%',
+            top:"20%",
             // containLabel: true
         },
-        // backgroundColor: 'black', //背景必须与symbal颜色一样
-        "xAxis": {
-            type: 'value',
-            "max": max,
-            "splitLine": {
-                "show": false
+        xAxis: {
+            axisLine: {
+                show: false
             },
-            "axisLine": {
-                "show": false
+            // type: 'value',
+            // boundaryGap: [0, 0.01],
+            axisTick: {
+                show: false
             },
-            "axisLabel": {
-                "show": false
+            splitLine:{
+                show: false,
             },
-            "axisTick": {
-                "show": false
+            axisLabel:{
+                show:false
             }
         },
-        "yAxis": {
-            "type": "category",
-            "inverse": false,
-            "data": [],
-            "axisLine": {
-                "show": false
+        yAxis: {
+            type: 'category',
+            axisLine: {
+                show: false
             },
-            "axisTick": {
-                "show": false
-            },
-            "axisLabel": {
-                "show": false
-            }
         },
-        "series": [
-
-            { //间距
+        series: [
+        
+            {
+                // name: '2012年',
+                 barGap: '180%',
+                //  barCategoryGap:'500%',
+                 barWidth: 20,
                 type: 'bar',
-                barWidth: 12,
-                stack: 'b',
-                legendHoverLink: false,
-                itemStyle: {
-
-                    normal: {
-                        color: 'rgba(0,0,0,0)'
-                    }
-                },
-
-                data: [positionLeft]
-            },
-
-
-            { //内
-                type: 'bar',
-                barWidth: 30,
-                stack: 'b',
-                label: {
-                    normal: {
-                        show: true,
-                        position: [238, -22],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        // formatter: function(e) {
-                        //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
-                        // }
-                    }
-                },
-                legendHoverLink: false,
-                silent: true,
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 1, 0, [{
+                  label: {
+                        normal: {
+                            show: true,
+                               position: 'right',
+                                // padding: 10,
+                                offset:[-70,-25],
+                                fontSize: 16,
+                            textStyle: {
+                                color: '#fff'
+                            },
+                       
+                        }
+                    },
+                 itemStyle:{
+                     normal: {
+                         barBorderRadius: 30,
+                           color: new echarts.graphic.LinearGradient(
+                            0, 0, 1, 0,
+                            [{
                                     offset: 0,
-                                    color: '#1c74fb'
+                                    color: '#156dff'
                                 },
                                 {
                                     offset: 1,
-                                    color: '#8ac5ec'
-                                }
+                                    color: '#00eaeb'
+                                },
                             ]
-                        )
-                    }
-                },
-
-                data: [value]
+                        ),
+                     }
+                 },
+                data: [19325]
             },
-            { //框
+            {
+                name: '2011年',
+                // barGap: '200%',
                 type: 'bar',
-                barWidth: 14,
-                barGap: '-110%',
-                label: {
-                    normal: {
-                        show: false,
-                        position: 'right',
-                        textStyle: {
-                            color: '#000'
+                  barWidth:20,
+                //   type: 'bar',
+                  label: {
+                        normal: {
+                            show: true,
+                               position: 'right',
+                                // padding: 10,
+                                offset:[-70,-25],
+                                fontSize: 16,
+                            textStyle: {
+                                color: '#fff'
+                            },
+                       
                         }
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: 'rgba(0,0,0,0)', //底色
-                        borderWidth: 2,
-                        borderColor: '#2761c3'
-                    }
-                },
-                data: [max],
-                z: 1,
-            }
+                    },
+                 itemStyle:{
+                     normal: {
+                         barBorderRadius: 30,
+                           color: new echarts.graphic.LinearGradient(
+                            0, 0, 1, 0,
+                            [{
+                                    offset: 0,
+                                    color: '#156dff'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#00eaeb'
+                                },
+                            ]
+                        ),
+                     }
+                 },
+               data: [16889]
+            },
+            {
+                name: '2011年',
+                barGap: '260%',
+                type: 'bar',
+                  barWidth:20,
+                //   type: 'bar',
+                  label: {
+                        normal: {
+                            show: true,
+                               position: 'right',
+                                // padding: 10,
+                                offset:[-70,-25],
+                                fontSize: 16,
+                            textStyle: {
+                                color: '#fff'
+                            },
+                       
+                        }
+                    },
+                 itemStyle:{
+                     normal: {
+                         barBorderRadius: 30,
+                           color: new echarts.graphic.LinearGradient(
+                            0, 0, 1, 0,
+                            [{
+                                    offset: 0,
+                                    color: '#156dff'
+                                },
+                                {
+                                    offset: 1,
+                                    color: '#00eaeb'
+                                },
+                            ]
+                        ),
+                     }
+                 },
+               data: [18526]
+            },
+            
         ]
     };
-
+    
     // let positionLeft = 1,
-    // maxTwo = 100 + 39000 * positionLeft,
-    // 2
-    valueTwo = 31482;
-    pmoutputOptionTwo = {
-        grid: {
+    //     max = 100 + 39000 * positionLeft,
+    //     value = 34501;
+    // // 1
+    // pmoutputOptionOne = {
+    //     grid: {
 
-            top: "30%",
-            right: "0",
-            bottom: "0",
+    //         top: "30%",
+    //         right: "1",
+    //         bottom: "0",
 
-            // containLabel: true
-        },
-        // backgroundColor: 'black', //背景必须与symbal颜色一样
-        "xAxis": {
-            type: 'value',
-            "max": max,
-            "splitLine": {
-                "show": false
-            },
-            "axisLine": {
-                "show": false
-            },
-            "axisLabel": {
-                "show": false
-            },
-            "axisTick": {
-                "show": false
-            }
-        },
-        "yAxis": {
-            "type": "category",
-            "inverse": false,
-            "data": [],
-            "axisLine": {
-                "show": false
-            },
-            "axisTick": {
-                "show": false
-            },
-            "axisLabel": {
-                "show": false
-            }
-        },
-        "series": [
+    //         // containLabel: true
+    //     },
+    //     // backgroundColor: 'black', //背景必须与symbal颜色一样
+    //     "xAxis": {
+    //         type: 'value',
+    //         "max": max,
+    //         "splitLine": {
+    //             "show": false
+    //         },
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         }
+    //     },
+    //     "yAxis": {
+    //         "type": "category",
+    //         "inverse": false,
+    //         "data": [],
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         }
+    //     },
+    //     "series": [
 
-            { //间距
-                type: 'bar',
-                barWidth: 12,
-                stack: 'b',
-                legendHoverLink: false,
-                itemStyle: {
+    //         { //间距
+    //             type: 'bar',
+    //             barWidth: 12,
+    //             stack: 'b',
+    //             legendHoverLink: false,
+    //             itemStyle: {
 
-                    normal: {
-                        color: 'rgba(0,0,0,0)'
-                    }
-                },
+    //                 normal: {
+    //                     color: 'rgba(0,0,0,0)'
+    //                 }
+    //             },
 
-                data: [positionLeft]
-            },
-
-
-            { //内
-                type: 'bar',
-                barWidth: 30,
-                stack: 'b',
-                label: {
-                    normal: {
-                        show: true,
-                        position: [238, -22],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        // formatter: function(e) {
-                        //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
-                        // }
-                    }
-                },
-                legendHoverLink: false,
-                silent: true,
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 1, 0, [{
-                                    offset: 0,
-                                    color: '#1c74fb'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#8ac5ec'
-                                }
-                            ]
-                        )
-                    }
-                },
-
-                data: [valueTwo]
-            },
-            { //框
-                type: 'bar',
-                barWidth: 14,
-                barGap: '-110%',
-                label: {
-                    normal: {
-                        show: false,
-                        position: 'right',
-                        textStyle: {
-                            color: '#000'
-                        }
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: 'rgba(0,0,0,0)', //底色
-                        borderWidth: 2,
-                        borderColor: '#2761c3'
-                    }
-                },
-                data: [max],
-                z: 1,
-            }
-        ]
-    };
-
-    // let positionLeft = 1,
-    // maxThree = 100 + 39000 * positionLeft,
-    // 3
-    valueThree = 29893;
-    pmoutputOptionThree = {
-        grid: {
-
-            top: "30%",
-            right: "0",
-            bottom: "0",
-
-            // containLabel: true
-        },
-        // backgroundColor: 'black', //背景必须与symbal颜色一样
-        "xAxis": {
-            type: 'value',
-            "max": max,
-            "splitLine": {
-                "show": false
-            },
-            "axisLine": {
-                "show": false
-            },
-            "axisLabel": {
-                "show": false
-            },
-            "axisTick": {
-                "show": false
-            }
-        },
-        "yAxis": {
-            "type": "category",
-            "inverse": false,
-            "data": [],
-            "axisLine": {
-                "show": false
-            },
-            "axisTick": {
-                "show": false
-            },
-            "axisLabel": {
-                "show": false
-            }
-        },
-        "series": [
-
-            { //间距
-                type: 'bar',
-                barWidth: 12,
-                stack: 'b',
-                legendHoverLink: false,
-                itemStyle: {
-
-                    normal: {
-                        color: 'rgba(0,0,0,0)'
-                    }
-                },
-
-                data: [positionLeft]
-            },
+    //             data: [positionLeft]
+    //         },
 
 
-            { //内
-                type: 'bar',
-                barWidth: 30,
-                stack: 'b',
-                label: {
-                    normal: {
-                        show: true,
-                        position: [238, -22],
-                        textStyle: {
-                            color: '#fff'
-                        },
-                        // formatter: function(e) {
-                        //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
-                        // }
-                    }
-                },
-                legendHoverLink: false,
-                silent: true,
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: new echarts.graphic.LinearGradient(
-                            0, 0, 1, 0, [{
-                                    offset: 0,
-                                    color: '#1c74fb'
-                                },
-                                {
-                                    offset: 1,
-                                    color: '#8ac5ec'
-                                }
-                            ]
-                        )
-                    }
-                },
+    //         { //内
+    //             type: 'bar',
+    //             barWidth: 30,
+    //             stack: 'b',
+    //             label: {
+    //                 normal: {
+    //                     show: true,
+    //                     position: [238, -22],
+    //                     textStyle: {
+    //                         color: '#fff'
+    //                     },
+    //                     // formatter: function(e) {
+    //                     //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
+    //                     // }
+    //                 }
+    //             },
+    //             legendHoverLink: false,
+    //             silent: true,
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: new echarts.graphic.LinearGradient(
+    //                         0, 0, 1, 0, [{
+    //                                 offset: 0,
+    //                                 color: '#1c74fb'
+    //                             },
+    //                             {
+    //                                 offset: 1,
+    //                                 color: '#8ac5ec'
+    //                             }
+    //                         ]
+    //                     )
+    //                 }
+    //             },
 
-                data: [valueThree]
-            },
-            { //框
-                type: 'bar',
-                barWidth: 14,
-                barGap: '-110%',
-                label: {
-                    normal: {
-                        show: false,
-                        position: 'right',
-                        textStyle: {
-                            color: '#000'
-                        }
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        barBorderRadius: 30,
-                        color: 'rgba(0,0,0,0)', //底色
-                        borderWidth: 2,
-                        borderColor: '#2761c3'
-                    }
-                },
-                data: [max],
-                z: 1,
-            }
-        ]
-    };
+    //             data: [value]
+    //         },
+    //         { //框
+    //             type: 'bar',
+    //             barWidth: 14,
+    //             barGap: '-110%',
+    //             label: {
+    //                 normal: {
+    //                     show: false,
+    //                     position: 'right',
+    //                     textStyle: {
+    //                         color: '#000'
+    //                     }
+    //                 }
+    //             },
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: 'rgba(0,0,0,0)', //底色
+    //                     borderWidth: 2,
+    //                     borderColor: '#2761c3'
+    //                 }
+    //             },
+    //             data: [max],
+    //             z: 1,
+    //         }
+    //     ]
+    // };
+
+    // // let positionLeft = 1,
+    // // maxTwo = 100 + 39000 * positionLeft,
+    // // 2
+    // valueTwo = 31482;
+    // pmoutputOptionTwo = {
+    //     grid: {
+
+    //         top: "30%",
+    //         right: "1",
+    //         bottom: "0",
+
+    //         // containLabel: true
+    //     },
+    //     // backgroundColor: 'black', //背景必须与symbal颜色一样
+    //     "xAxis": {
+    //         type: 'value',
+    //         "max": max,
+    //         "splitLine": {
+    //             "show": false
+    //         },
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         }
+    //     },
+    //     "yAxis": {
+    //         "type": "category",
+    //         "inverse": false,
+    //         "data": [],
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         }
+    //     },
+    //     "series": [
+
+    //         { //间距
+    //             type: 'bar',
+    //             barWidth: 12,
+    //             stack: 'b',
+    //             legendHoverLink: false,
+    //             itemStyle: {
+
+    //                 normal: {
+    //                     color: 'rgba(0,0,0,0)'
+    //                 }
+    //             },
+
+    //             data: [positionLeft]
+    //         },
+
+
+    //         { //内
+    //             type: 'bar',
+    //             barWidth: 30,
+    //             stack: 'b',
+    //             label: {
+    //                 normal: {
+    //                     show: true,
+    //                     position: [238, -22],
+    //                     textStyle: {
+    //                         color: '#fff'
+    //                     },
+    //                     // formatter: function(e) {
+    //                     //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
+    //                     // }
+    //                 }
+    //             },
+    //             legendHoverLink: false,
+    //             silent: true,
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: new echarts.graphic.LinearGradient(
+    //                         0, 0, 1, 0, [{
+    //                                 offset: 0,
+    //                                 color: '#1c74fb'
+    //                             },
+    //                             {
+    //                                 offset: 1,
+    //                                 color: '#8ac5ec'
+    //                             }
+    //                         ]
+    //                     )
+    //                 }
+    //             },
+
+    //             data: [valueTwo]
+    //         },
+    //         { //框
+    //             type: 'bar',
+    //             barWidth: 14,
+    //             barGap: '-110%',
+    //             label: {
+    //                 normal: {
+    //                     show: false,
+    //                     position: 'right',
+    //                     textStyle: {
+    //                         color: '#000'
+    //                     }
+    //                 }
+    //             },
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: 'rgba(0,0,0,0)', //底色
+    //                     borderWidth: 2,
+    //                     borderColor: '#2761c3'
+    //                 }
+    //             },
+    //             data: [max],
+    //             z: 1,
+    //         }
+    //     ]
+    // };
+
+    // // let positionLeft = 1,
+    // // maxThree = 100 + 39000 * positionLeft,
+    // // 3
+    // valueThree = 29893;
+    // pmoutputOptionThree = {
+    //     grid: {
+
+    //         top: "30%",
+    //         right: "1",
+    //         bottom: "0",
+
+    //         // containLabel: true
+    //     },
+    //     // backgroundColor: 'black', //背景必须与symbal颜色一样
+    //     "xAxis": {
+    //         type: 'value',
+    //         "max": max,
+    //         "splitLine": {
+    //             "show": false
+    //         },
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         }
+    //     },
+    //     "yAxis": {
+    //         "type": "category",
+    //         "inverse": false,
+    //         "data": [],
+    //         "axisLine": {
+    //             "show": false
+    //         },
+    //         "axisTick": {
+    //             "show": false
+    //         },
+    //         "axisLabel": {
+    //             "show": false
+    //         }
+    //     },
+    //     "series": [
+
+    //         { //间距
+    //             type: 'bar',
+    //             barWidth: 12,
+    //             stack: 'b',
+    //             legendHoverLink: false,
+    //             itemStyle: {
+
+    //                 normal: {
+    //                     color: 'rgba(0,0,0,0)'
+    //                 }
+    //             },
+
+    //             data: [positionLeft]
+    //         },
+
+
+    //         { //内
+    //             type: 'bar',
+    //             barWidth: 30,
+    //             stack: 'b',
+    //             label: {
+    //                 normal: {
+    //                     show: true,
+    //                     position: [238, -22],
+    //                     textStyle: {
+    //                         color: '#fff'
+    //                     },
+    //                     // formatter: function(e) {
+    //                     //     return (e.value / (max - 2*positionLeft) * 100).toFixed(2) + "%"
+    //                     // }
+    //                 }
+    //             },
+    //             legendHoverLink: false,
+    //             silent: true,
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: new echarts.graphic.LinearGradient(
+    //                         0, 0, 1, 0, [{
+    //                                 offset: 0,
+    //                                 color: '#1c74fb'
+    //                             },
+    //                             {
+    //                                 offset: 1,
+    //                                 color: '#8ac5ec'
+    //                             }
+    //                         ]
+    //                     )
+    //                 }
+    //             },
+
+    //             data: [valueThree]
+    //         },
+    //         { //框
+    //             type: 'bar',
+    //             barWidth: 14,
+    //             barGap: '-110%',
+    //             label: {
+    //                 normal: {
+    //                     show: false,
+    //                     position: 'right',
+    //                     textStyle: {
+    //                         color: '#000'
+    //                     }
+    //                 }
+    //             },
+    //             itemStyle: {
+    //                 normal: {
+    //                     barBorderRadius: 30,
+    //                     color: 'rgba(0,0,0,0)', //底色
+    //                     borderWidth: 2,
+    //                     borderColor: '#2761c3'
+    //                 }
+    //             },
+    //             data: [max],
+    //             z: 1,
+    //         }
+    //     ]
+    // };
 
 
 
@@ -942,7 +1097,7 @@ $(function () {
         // },
         // backgroundColor: "#20263f",
         series: [{
-            name: '第一个圆环',
+            name: '温度',
             type: 'pie',
             clockWise: false,
             radius: [47, 57],
@@ -1035,7 +1190,7 @@ $(function () {
         },
         // backgroundColor: "#20263f",
         series: [{
-            name: '第一个圆环',
+            name: '湿度',
             type: 'pie',
             clockWise: false,
             radius: [47, 57],
@@ -1222,13 +1377,13 @@ $(function () {
 
             demoData.forEach(function (item) {
                 result.push({
-                    name: item.name,
+                    name: "MIN",
                     type: 'gauge',
                     radius: '100%',
                     startAngle: 225,
                     endAngle: -45,
                     min: 0,
-                    max: 100,
+                    max: 150,
                     axisLine: {
                         show: true,
                         lineStyle: {
@@ -1277,20 +1432,20 @@ $(function () {
                         show: false,
                     }]
                 }, {
-                    name: item.name,
+                    name: "MIN",
                     type: 'gauge',
                     radius: '65%',
                     startAngle: 225,
                     endAngle: -45,
                     min: 0,
-                    max: 100,
+                    max: 150,
                     axisLine: {
                         show: true,
                         lineStyle: {
                             width: 15,
                             color: [
                                 [
-                                    item.value / 100, new echarts.graphic.LinearGradient(
+                                    item.value / 150, new echarts.graphic.LinearGradient(
                                         0, 1, 1, 0, [{
                                                 offset: 0,
                                                 color: 'rgba(255, 36, 74,0)',
@@ -1334,7 +1489,7 @@ $(function () {
                         },
                         formatter: [
                             '{value}',
-                            '{name|' + item.name + '}'
+                            '{name|' + "MIN" + '}'
                         ].join('\n'),
                         rich: {
                             name: {
@@ -1360,7 +1515,7 @@ $(function () {
                         length: 3,
                     },
                     min: 0,
-                    max: 100,
+                    max: 150,
                     startAngle: 225,
                     endAngle: -45,
                     axisLine: {
@@ -1410,9 +1565,10 @@ $(function () {
             return result;
         })()
     };
+
+    // 平面
     var demoDataTwo = [{
         name: 'MIN',
-        unit: '%',
         value: 88,
     }, ];
     perUnitOutputOptionTwo = {
@@ -1434,13 +1590,13 @@ $(function () {
 
             demoDataTwo.forEach(function (item) {
                 result.push({
-                    name: item.name,
+                    name: "MIN",
                     type: 'gauge',
                     radius: '100%',
                     startAngle: 225,
                     endAngle: -45,
                     min: 0,
-                    max: 100,
+                    max: 150,
                     axisLine: {
                         show: true,
                         lineStyle: {
@@ -1489,13 +1645,13 @@ $(function () {
                         show: false,
                     }]
                 }, {
-                    name: item.name,
+                    name: "MIN",
                     type: 'gauge',
                     radius: '65%',
                     startAngle: 225,
                     endAngle: -45,
                     min: 0,
-                    max: 100,
+                    max: 150,
                     axisLine: {
                         show: true,
                         lineStyle: {
@@ -1547,7 +1703,7 @@ $(function () {
                         },
                         formatter: [
                             '{value}',
-                            '{name|' + item.name + '}'
+                            '{name|' + "MIN" + '}'
                         ].join('\n'),
                         rich: {
                             name: {
@@ -1573,7 +1729,7 @@ $(function () {
                         length: 3,
                     },
                     min: 0,
-                    max: 100,
+                    max: 150,
                     startAngle: 225,
                     endAngle: -45,
                     axisLine: {
@@ -1636,16 +1792,17 @@ $(function () {
     // 耳带机2
     equipmentChartFour.setOption(equipmentOptionFour);
     // kn95口罩产量
-    knoutputChartr.setOption(knoutputOption);
+    knoutputChart.setOption(knoutputOption);
     // 平面口罩产量
-    pmoutputChartrOne.setOption(pmoutputOptionOne);
-    pmoutputChartrTwo.setOption(pmoutputOptionTwo);
-    pmoutputChartrThree.setOption(pmoutputOptionThree);
+    pmoutputChart.setOption(pmoutputOption)
+    // pmoutputChartrOne.setOption(pmoutputOptionOne);
+    // pmoutputChartrTwo.setOption(pmoutputOptionTwo);
+    // pmoutputChartrThree.setOption(pmoutputOptionThree);
     // 车间环境
     environmentChartOne.setOption(environmentOptionOne);
     environmentChartTwo.setOption(environmentOptionTwo);
     environmentChartThree.setOption(environmentOptionThree);
     // 单位产量
     perUnitOutputChartOne.setOption(perUnitOutputOptionOne);
-    perUnitOutputCharTwo.setOption(perUnitOutputOptionTwo);
+    perUnitOutputChartTwo.setOption(perUnitOutputOptionTwo);
 })

@@ -1,4 +1,5 @@
 $(function () {
+    // 摄像头列表
     $.ajax({
         url: "../json/cameraList.json",
         type: "get",
@@ -15,7 +16,8 @@ $(function () {
                     "display": "flex",
                     "align-items": "space-between"
                 })
-                $('li').css("margin-bottom", "8px")
+                $("ul").css({"cursor":"pointer"})
+                $('li').css({"margin-bottom":"8px","cursor":"pointer"})
                 $('.serial').css("margin-right", "65px")
                 $('.name').css("margin-right", "95px")
                 // $('.monitoring-three').children('.serial').text(cameraList[i].id)
