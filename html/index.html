@@ -5,20 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet/less" type="text/css" href="./less/index.less">
-    <link rel="stylesheet/less" type="text/css" href="./less/base.less">
-    <!-- <link rel="stylesheet/css" type="text/css" href="./less/base.css">
-    <link rel="stylesheet/css" type="text/css" href="./less/index.css"> -->
+    <link rel="stylesheet/less" type="text/css" href="../less/index.less">
+    <link rel="stylesheet/less" type="text/css" href="../less/base.less">
+    <link rel="stylesheet/less" type="text/css" href="../less/loading.less">
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="./js/myEchart.js"></script>
-    <script type="text/javascript" src="./js/time.js"></script>
-    <script type="text/javascript" src="./js/monitorList.js"></script>
-    <script type="text/javascript" src="./js/getEchartData.js"></script>
-    <script type="text/javascript" src="./js/numObj.js"></script>
+    <script type="text/javascript" src="../js/index/myEchart.js"></script>
+    <script type="text/javascript" src="../js/index/time.js"></script>
+    <script type="text/javascript" src="../js/index/monitorList.js"></script>
+    <script type="text/javascript" src="../js/index/getEchartData.js"></script>
+    <script type="text/javascript" src="../js/index/numObj.js"></script>
+    <script type="text/javascript" src="../js/login/login.js"></script>
 </head>
 <body>
+    <div class="loading-bgc">
+        <div class=loading-wrap>
+            <div class="loading">
+                <div class="circle circle1">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="circle circle2">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="circle circle3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="fonst">
+                <div>loading...</div>
+            </div>
+        </div>
+    </div>
     <!-- 面板背景 -->
     <div id="bgi-wrap">
         <!-- 头部 -->
@@ -26,7 +53,7 @@
             <!-- logo和标题 -->
             <div class="title-wrap">
                 <div id="logo">
-                    <img src="./img/logo.png" alt="">
+                    <img src="../img/logo.png" alt="">
                 </div>
                 <div class="title">捷圣智能科技实时数据监控系统</div>
             </div>

@@ -156,7 +156,7 @@ $(function () {
             }
         },
         tooltip: {
-            // trigger: 'item',
+            trigger: 'item',
             formatter: '时间 :<br/>{c}分钟'
         },
         // legend: {
