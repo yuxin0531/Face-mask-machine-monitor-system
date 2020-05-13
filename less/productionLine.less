@@ -1,0 +1,208 @@
+.productionLine-bgi-wrap {
+    background: url("../img/productionLine-bgi.png") no-repeat;
+    width: 1920px;
+    height: 1080px;
+
+    // 头部属于公共样式放于head.less
+
+    // 主体盒子
+    .productionLine-main-wrap {
+        margin-top: 40px;
+        width: 1786px;
+        height: 870px;
+        margin-left: 75px;
+
+
+        // 主体上半部分
+        .productionLine-main-top-wrap {
+            width: 1786px;
+            height: 526px;
+            display: flex;
+
+            // 设备稼动率图表盒子
+            .productionLine-equipment-chart-wrap {
+                width: 464px;
+                height: 446px;
+
+                // 设备稼动率标题
+                .productionLine-equipment-chart-title {
+                    height: 34px;
+                    line-height: 34px;
+                    margin-left: 34px;
+                    margin-bottom: 24px;
+                }
+
+
+                //设备稼动率图表图例
+                .legend-wrap {
+                    width: 260px;
+                    height: 26px;
+                    position: absolute;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                    margin-left: 25px;
+                }
+
+                .legend {
+                    display: flex;
+                    width: 230px;
+                    height: 26px;
+                    justify-content: space-between;
+                    position: absolute;
+                    z-index: 2;
+
+                    // 运行和停机
+                    .run,
+                    .stop {
+                        display: flex;
+                        height: 25px;
+                        width: 120px;
+                        justify-content: space-between;
+                        align-items: center;
+
+
+                        // 文字
+                        p {
+                            height: 20px;
+                            font-size: 20px;
+                            color: #357d8a;
+                            margin-left: 3px
+                        }
+
+                        // 色块
+                        .skyblue,
+                        .blue {
+                            width: 14px;
+                            height: 14px;
+                            margin-top: 8px;
+                            background-color: #50a4db;
+                            margin-left: 5px;
+                        }
+
+                        .blue {
+                            background-color: #336db4;
+                        }
+                    }
+
+                    .stop {
+                        margin-left: 10px;
+                    }
+
+                }
+
+                // 设备稼动率图表
+                .productionLine-equipment-chart {
+                    width: 328px;
+                    height: 346px;
+                    margin: 0 auto;
+                }
+            }
+
+            // 生产数量图表盒子
+            .productionLine-outPut-wrap {
+                width: 746px;
+                height: 446px;
+                margin-left: 48px;
+
+                // 产量标题
+                .productionLine-outPut-title {
+                    height: 34px;
+                    line-height: 34px;
+                    margin-left: 35px;
+
+                   
+            }
+
+            .productionLine-outPut-num-wrap {
+                height: 410px;
+                width: 746px;
+                font-size: 120px;
+                text-align: center;
+                line-height: 410px;
+                position: relative;
+
+                i {
+                    height: 250px;
+                    font-size: 30px;
+                    position: absolute;
+                    top:70px;
+                    right:100px
+                }
+            }
+        }
+
+            // 单位产量图表盒子
+            .productionLine-perUnitOutput-chart-wrap {
+                width: 464px;
+                height: 446px;
+                margin-left: 64px;
+                // 单位产量标题
+                .productionLine-perUnitOutput-chart-title {
+                    height: 34px;
+                    line-height: 34px;
+                    margin-left: 34px;
+                    margin-bottom: 24px;
+                }
+
+                // 单位产量图表
+                .productionLine-perUnitOutput-chart {
+                    width: 328px;
+                    height: 310px;
+                    margin: 0 auto;
+                }
+
+                .gauge-label-wrap{
+                    font-size: 30px;
+                    text-align: center;
+                }
+            }
+        }
+        // 主体下半部分
+        .productionLine-main-bottom-wrap {
+            width: 100%;
+            height: 344px;
+            position: relative;
+            // 每小时产量图表
+            .productionLine-hourly-output{
+                margin: 0 auto;
+                width: 1476px;
+                height: 100%;
+            }
+            // 按钮 
+            .export-btn,.history-btn{    
+                width: 164px;
+                height: 36px;
+                line-height: 36px;
+                text-align: center;
+                position: absolute;
+                right:-14px;
+                border-radius: 6px;
+                font-size: 20px;
+                color:#83b2d4;
+                cursor: pointer;
+                background:linear-gradient(to right,#2a536b,#212e4f);
+                
+                i {
+                    font-size: 20px;
+                    // margin-right: 20px;
+                    position: relative;
+                    left: -20px;
+                }
+                
+            }
+            // 鼠标悬停状态
+            .export-btn:hover{background:#2a536b}
+            .history-btn:hover{background:#2a536b}
+            // 导出按钮
+            .export-btn{
+                top:0
+            }
+            // 历史按钮
+            .history-btn{
+                top:53px;
+            }
+        }
+
+    }
+}

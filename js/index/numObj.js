@@ -6,7 +6,7 @@ $(function () {
         success: function (data) {
            if(data){
            setTimeout(function(){
-            $('.loading-bgc').remove()
+            $('.none').css("display","none")
            },2000)
             // kn95口罩生产数量
             $('.kn-output-num').text(data.knOutputNum)
@@ -16,7 +16,6 @@ $(function () {
             $('.kn-num').text(data.knNum)
             // 平面口罩人均产量
             $('.pm-num').text(data.pmNum)
-           
            }
         }
     });

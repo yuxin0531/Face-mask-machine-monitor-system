@@ -3,52 +3,7 @@
     background: url("../img/bigBgi.png") no-repeat;
     width: 1920px;
     height: 1080px;
-
-    //头部盒子,存放logo,文字和时间样式
-    .head-wrap {
-        width: 100%;
-        height: 113px;
-        position: relative;
-
-        // logo和标题样式
-        .title-wrap {
-            width: 820px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            margin: 0 auto;
-
-            // logo样式
-            #logo {
-                float: left;
-                margin-right: 20px;
-
-                img {
-                    width: 100px;
-                }
-            }
-
-            // 标题样式
-            .title {
-                font-size: 50px;
-                float: left;
-            }
-
-        }
-
-        //时间盒子样式
-        .time-wrap {
-            position: absolute;
-            right: 36px;
-            top: 22px;
-            font-size: 16px;
-        }
-
-    }
-
-    // 头部结束
-
-
+    // 头部属于公共样式放于head.less
     // 主体部分
     .main-wrap {
         width: 1843px;
@@ -268,7 +223,7 @@
                     }
 
                     .pmoutput-chart {
-                        margin-left:18px;
+                        margin-left: 18px;
                         width: 307px;
                         height: 250px;
                     }
@@ -325,8 +280,8 @@
                     .monitoring-main {
                         width: 438px;
                         height: 146px;
-                        overflow-y:auto;
-                        
+                        overflow-y: auto;
+
                         // 3-7监控
                         .monitoring-three,
                         .monitoring-four,
@@ -335,7 +290,7 @@
                         .monitoring-seven {
                             display: flex;
                             align-items: space-between;
-                            
+
                             // justify-content: flex-start;
                             li {
                                 margin-bottom: 8px;
@@ -448,18 +403,18 @@
                     height: 94px;
                     margin-top: 40px;
                     display: flex;
-                    flex-direction:column;
-                    align-items:center;
+                    flex-direction: column;
+                    align-items: center;
 
                     .perCapitaOutput-num {
                         width: 367px;
                         // height: 34px;
                         display: flex;
                         justify-content: space-between;
-                        font-size:60px;
-                        color:#3ed3e0;
+                        font-size: 60px;
+                        color: #3ed3e0;
                         margin-bottom: 20px;
-                        margin-left:4px
+                        margin-left: 4px
                     }
 
                     .perCapitaOutput-label {
@@ -468,8 +423,8 @@
                         display: flex;
                         justify-content: space-between;
 
-                        .perCapitaOutput-unit{
-                            color:#3ed3e0;
+                        .perCapitaOutput-unit {
+                            color: #3ed3e0;
                         }
                     }
                 }
@@ -479,7 +434,16 @@
     }
 
 }
+
 // 滚动条样式设置
-::-webkit-scrollbar{width:8px;}
-::-webkit-scrollbar-track{background-color:#3c5276;}
-::-webkit-scrollbar-thumb{background-color:#fff;}
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #3c5276;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #fff;
+}

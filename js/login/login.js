@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-05-11 11:35:44
+ * @LastEditTime: 2020-05-13 10:53:06
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\js\login\login.js
+ */
 $(function () {
     // var data = null
     // setTimeout(function(){
@@ -9,10 +17,10 @@ $(function () {
 
         if (passwordLength === 0 || accountLength === 0) {
             alert('账号或密码不能为空')
-        } else if (accountLength != 11) {
-            alert("账号位数不对,请输入11位数的账号")
-        } else if (passwordLength != 6) {
-            alert("密码位数不正确,请输入六位数的密码")
+        } else if (accountLength >20) {
+            alert("账号输入格式错误")
+        } else if (passwordLength >20) {
+            alert("密码输入格式错误")
             $('#password-input').val("")
         } else {
             window.location.href = "./index.html";

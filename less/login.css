@@ -11,6 +11,7 @@
   align-items: center;
 }
 .login-bgi-wrap .login-container .login-form-wrap {
+  border-radius: 15px;
   box-sizing: border-box;
   background-color: #fff;
   width: 1140px;

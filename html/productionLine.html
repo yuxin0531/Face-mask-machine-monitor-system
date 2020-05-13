@@ -1,0 +1,108 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-05-12 08:39:47
+ * @LastEditTime: 2020-05-13 10:17:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\html\productionLine.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 基础样式 -->
+    <link rel="stylesheet/less" type="text/css" href="../less/base.less">
+    <!-- 本页面样式 -->
+    <link rel="stylesheet/less" type="text/css" href="../less/productionLine.less">
+    <!-- 公共头部样式 -->
+    <link rel="stylesheet/less" type="text/css" href="../less/head.less">
+    <link rel="stylesheet" type="text/css" href="../img/iconfont/iconfont.css">
+    <!-- less -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <!-- echart -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <!-- jq -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 公用的本地时间 -->
+    <script type="text/javascript" src="../js/common/time.js"></script>
+    <script type="text/javascript" src="../js/productionLine/click.js"></script>
+    <!-- 本页面用到的echart -->
+    <script type="text/javascript" src="../js/productionLine/myEchart.js"></script>
+</head>
+
+<body>
+    <!-- 产线面板背景 -->
+    <div class="productionLine-bgi-wrap">
+        <!-- 公共head解构代码放于head.js -->
+        <div class="head-wrap">
+        </div>
+        <!-- 1837 950 -->
+        <!-- 头部以下的主体 -->
+        <div class="productionLine-main-wrap">
+            <!-- 1787 870 -->
+            <!-- 1787 451 -->
+            <!-- 主体上半部分 -->
+            <div class="productionLine-main-top-wrap">
+                <!-- 设备稼动率图表盒子 -->
+                <div class="productionLine-equipment-chart-wrap">
+                    <!-- 466 446 -->
+                    <!-- 设备稼动率图表标题 -->
+                    <div class="productionLine-equipment-chart-title bold">设备稼动率</div>
+                    <!-- 设备稼动率图例 -->
+                    <div class="legend-wrap">
+                        <div class="legend">
+                            <div class="run">
+                                <p>运行时间</p>
+                                <div class="skyblue"></div>
+                            </div>
+                            <div class="stop">
+                                <p>停机时间</p>
+                                <div class="blue"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 设备稼动率图表 -->
+                    <div class="productionLine-equipment-chart"></div>
+                </div>
+                <!-- 生产数量图表盒子 -->
+                <!-- 746 -->
+                <div class="productionLine-outPut-wrap">
+                    <div class="productionLine-outPut-title bold">KN95口罩生产数量</div>
+                    <div class="productionLine-outPut-num-wrap">
+                        2689205
+                        <i>个</i>
+                    </div>
+                </div>
+                <!-- 单位产量 -->
+                <div class="productionLine-perUnitOutput-chart-wrap">
+                    <!-- 466 446 -->
+                    <!-- 设备稼动率图表标题 -->
+                    <div class="productionLine-perUnitOutput-chart-title bold">单位产量</div>
+                    <!-- 设备稼动率图表 -->
+                    <div class="productionLine-perUnitOutput-chart"></div>
+                    <div class="gauge-label-wrap">
+                        KN95
+                        <!-- <div class="kn-gauge-label">KN95</div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 主体的下半部分 -->
+            <div class="productionLine-main-bottom-wrap">
+                <!-- 每小时产量图表 -->
+                <div class="productionLine-hourly-output"></div>
+                <!-- 164 36 -->
+                <!-- 导出按钮 -->
+                <div class="export-btn"><i class="iconfont icon-daochu"></i> 导出</div>
+                <!-- 历史按钮 -->
+                <div class="history-btn"><i class="iconfont icon-lishijilu"></i>历史</div>
+            </div>
+        </div>
+    </div>
+    <!-- 公共头部的html -->
+    <script type="text/javascript" src="../js/common/head.js"></script>
+</body>
+
+</html>
