@@ -5,34 +5,25 @@ $(function () {
     var productionLineperUnitOutputChart = echarts.init(document.getElementsByClassName('productionLine-perUnitOutput-chart')[0]);
     // 每小时产量
     var productionLineOutPutChart = echarts.init(document.getElementsByClassName('productionLine-hourly-output')[0]);
-
+   
     
     // 设备稼动率图表
     productionLineMaskQuantityOption = {
 
-        grid: {
-            // left: "0",
-            top: "0",
-            right: "0",
-            bottom: "0",
-            // width: "auto",
-            // height: "auto",
-            // containLabel: true
-        },
-        title: {
-            text: 'KN95口罩',
-            bottom: 10,
-            left: 'center',
-            textStyle: {
-                color: '#3ed3e0',
-                fontSize: '25',
-                fontWeight: 'normal',
-                lineHeight: 0
-            }
-        },
+        // title: {
+        //     text: 'KN95口罩',
+        //     bottom: 10,
+        //     left: 'center',
+        //     textStyle: {
+        //         color: '#3ed3e0',
+        //         fontSize: '25',
+        //         fontWeight: 'normal',
+        //         lineHeight: 0
+        //     }
+        // },
         tooltip: {
             trigger: 'item',
-            formatter: '时间 :<br/>{c}分钟'
+            formatter: "{b} : {c} ({d}%)"
         },
         // legend: {
         //     left: 'left',
@@ -42,26 +33,38 @@ $(function () {
         // },
         series: [{
             type: 'pie',
-            // radius: '55%',
-            // center: ['50%', '60%'],
-            data: [{
-                    value: 75,
-                    name: "75%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-                {
-                    value: 25,
-                    name: "25%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
+            radius: '86%',
+            center: ['50%', '50%'],
+            label: {
+                normal: {
+                        show: true,
+                        fontSize: 22,
+                        position:'inner', //标签的位置
+                        formatter: '{d}%'
+                }
+        },
+            data:[
+                {value:360, name:'运行时间'},
+                {value:100, name:'停机时间'}
+        ],
+            // data: [{
+            //         value: 75,
+            //         name: "75%",
+            //         label: {
+            //             position: 'inner',
+            //             fontSize: 36
+            //         }
+            //     },
+            //     {
+            //         value: 25,
+            //         name: "26%",
+            //         label: {
+            //             position: 'inner',
+            //             fontSize: 36
+            //         }
+            //     },
 
-            ],
+            // ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,

@@ -11,7 +11,7 @@ $(function () {
     var environmentChartThree = echarts.init(document.getElementsByClassName('environment-chart-three')[0]);
     var perUnitOutputChartOne = echarts.init(document.getElementsByClassName('perUnitOutput-chart-one')[0]);
     var perUnitOutputChartTwo = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
-    $.get('../json/data.json').done(function (data) {
+    $.get('../json/indexData.json').done(function (data) {
         // 入库数量图表
         maskQuantityChart.setOption({
             series: [{

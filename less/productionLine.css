@@ -76,7 +76,7 @@
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-equipment-chart-wrap .productionLine-equipment-chart {
   width: 328px;
   height: 346px;
-  margin: 0 auto;
+  margin: 56px auto 0;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-outPut-wrap {
   width: 746px;
@@ -96,11 +96,18 @@
   line-height: 410px;
   position: relative;
 }
+.productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-outPut-wrap .productionLine-outPut-num-wrap .productionLine-name {
+  position: absolute;
+  font-size: 46px;
+  left: 34px;
+  top: -120px;
+  color: #50a4db;
+}
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-outPut-wrap .productionLine-outPut-num-wrap i {
   height: 250px;
   font-size: 30px;
   position: absolute;
-  top: 70px;
+  top: 90px;
   right: 100px;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-perUnitOutput-chart-wrap {
@@ -115,13 +122,9 @@
   margin-bottom: 24px;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-perUnitOutput-chart-wrap .productionLine-perUnitOutput-chart {
-  width: 328px;
+  width: 348px;
   height: 310px;
-  margin: 0 auto;
-}
-.productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-perUnitOutput-chart-wrap .gauge-label-wrap {
-  font-size: 30px;
-  text-align: center;
+  margin: 78px auto 0;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-bottom-wrap {
   width: 100%;

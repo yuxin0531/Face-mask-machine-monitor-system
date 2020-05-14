@@ -137,8 +137,6 @@ $(function () {
         ]
     };
 
-
-
     
     // 设备稼动率图表
     // KN95口罩
@@ -157,36 +155,44 @@ $(function () {
         },
         tooltip: {
             trigger: 'item',
-            formatter: '时间 :<br/>{c}分钟'
+            formatter: "{b} : {c} 分钟({d}%)"
         },
-        // legend: {
-        //     left: 'left',
-        //     textStyle: { // 图列内容样式
-        //         color: '#3b9ca4', // 字体颜色
-        //     },
-        // },
         series: [{
             type: 'pie',
+            // radius: '86%',
+            center: ['50%', '50%'],
+            label: {
+                normal: {
+                        show: true,
+                        fontSize: 16,
+                        position:'inner', //标签的位置
+                        formatter: '{d}%'
+                }
+        },
+            data:[
+                {value:360, name:'运行时间'},
+                {value:100, name:'停机时间'}
+        ],
             // radius: '55%',
             // center: ['50%', '60%'],
-            data: [{
-                    value: 75,
-                    name: "75%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-                {
-                    value: 25,
-                    name: "25%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
+            // data: [{
+            //         value: 75,
+            //         name: "75%",
+            //         label: {
+            //             position: 'inner',
+            //             fontSize: 16
+            //         }
+            //     },
+            //     {
+            //         value: 25,
+            //         name: "25%",
+            //         label: {
+            //             position: 'inner',
+            //             fontSize: 16
+            //         }
+            //     },
 
-            ],
+            // ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,
@@ -209,49 +215,26 @@ $(function () {
 
     // 平面口罩
     equipmentOptionTwo = {
-        title: {
-            text: '平面口罩',
-            bottom: 10,
-            left: 'center',
-            textStyle: {
-                color: '#3ed3e0',
-                fontSize: '16',
-                fontWeight: 'normal',
-                lineHeight: 0
-            }
-        },
         tooltip: {
-            // trigger: 'item',
-            formatter: '时间 :<br/>{c}分钟'
+            trigger: 'item',
+            formatter: "{b} : {c} 分钟({d}%)"
         },
-        // legend: {
-        //     left: 'left',
-        //     textStyle: { // 图列内容样式
-        //         color: '#3b9ca4', // 字体颜色
-        //     },
-        // },
         series: [{
             type: 'pie',
-            // radius: '55%',
-            // center: ['50%', '60%'],
-            data: [{
-                    value: 37,
-                    name: "37%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-                {
-                    value: 63,
-                    name: "63%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-
-            ],
+            // radius: '86%',
+            center: ['50%', '50%'],
+            label: {
+                normal: {
+                        show: true,
+                        fontSize: 16,
+                        position:'inner', //标签的位置
+                        formatter: '{d}%'
+                }
+        },
+            data:[
+                {value:360, name:'运行时间'},
+                {value:100, name:'停机时间'}
+        ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,
@@ -286,44 +269,25 @@ $(function () {
             }
         },
         tooltip: {
-            // trigger: 'item',
-            formatter: '时间 :<br/>{c}分钟'
+            trigger: 'item',
+            formatter: "{b} : {c} 分钟({d}%)"
         },
-        // legend: {
-        //     left: 'left',
-        //     textStyle: { // 图列内容样式
-        //         color: '#3b9ca4', // 字体颜色
-        //     },
-        // },
         series: [{
             type: 'pie',
-            // radius: '55%',
-            // center: ['50%', '60%'],
-            data: [{
-                    value: 44,
-                    name: "44%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-                {
-                    value: 56,
-                    name: "56%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-
-            ],
-            // emphasis: {
-            //     itemStyle: {
-            //         shadowBlur: 10,
-            //         shadowOffsetX: 0,
-            //         shadowColor: 'rgba(0, 0, 0, 0.5)'
-            //     }
-            // }
+            // radius: '86%',
+            center: ['50%', '50%'],
+            label: {
+                normal: {
+                        show: true,
+                        fontSize: 16,
+                        position:'inner', //标签的位置
+                        formatter: '{d}%'
+                }
+        },
+            data:[
+                {value:360, name:'运行时间'},
+                {value:100, name:'停机时间'}
+        ],
             labelLine: {
                 normal: {
                     show: false
@@ -351,37 +315,25 @@ $(function () {
             }
         },
         tooltip: {
-            // trigger: 'item',
-            formatter: '时间 :<br/>{c}分钟'
+            trigger: 'item',
+            formatter: "{b} : {c} 分钟({d}%)"
         },
-        // legend: {
-        //     left: 'left',
-        //     textStyle: { // 图列内容样式
-        //         color: '#3b9ca4', // 字体颜色
-        //     },
-        // },
         series: [{
             type: 'pie',
-            // radius: '55%',
-            // center: ['50%', '60%'],
-            data: [{
-                    value: 67,
-                    name: "67%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-                {
-                    value: 33,
-                    name: "33%",
-                    label: {
-                        position: 'inner',
-                        fontSize: 16
-                    }
-                },
-
-            ],
+            // radius: '86%',
+            center: ['50%', '50%'],
+            label: {
+                normal: {
+                        show: true,
+                        fontSize: 16,
+                        position:'inner', //标签的位置
+                        formatter: '{d}%'
+                }
+        },
+            data:[
+                {value:360, name:'运行时间'},
+                {value:100, name:'停机时间'}
+        ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,
@@ -533,17 +485,31 @@ $(function () {
             },
         ],
     };
+    
+    // knoutputChart.getZr().on('click', params => {
+    //     let pointInPixel = [params.offsetX, params.offsetY]
+    //     console.log(pointInPixel);//位置
+        
+    //     if (knoutputChart.containPixel('grid', pointInPixel)) {
+    //       let xIndex = knoutputChart.convertFromPixel({ seriesIndex: 0 }, [params.offsetX, params.offsetY])[0]
+    //       console.log(xIndex)
+    //     }
+    //   })
 
-
+    knoutputChart.on('click', function (params) {
+        console.log(params.dataIndex)
+        window.location.href = `../html/productionLine.html?ch=${params.dataIndex}&type=0`
+      })
 
     // 平面口罩产量
     pmoutputOption = {
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'shadow'
-            }
-        },
+        // tooltip: {
+        //     show:false,
+        //     trigger: 'axis',
+        //     axisPointer: {
+        //         type: 'shadow'
+        //     }
+        // },
     
         grid: {
             left: '0%',
@@ -559,14 +525,15 @@ $(function () {
             // type: 'value',
             // boundaryGap: [0, 0.01],
             axisTick: {
-                show: false
+                show: false,
             },
             splitLine:{
                 show: false,
             },
             axisLabel:{
                 show:false
-            }
+            },
+            triggerEvent:true
         },
         yAxis: {
             type: 'category',
@@ -575,7 +542,6 @@ $(function () {
             },
         },
         series: [
-        
             {
                 // name: '2012年',
                  barGap: '180%',
@@ -583,6 +549,7 @@ $(function () {
                  barWidth: 20,
                 type: 'bar',
                   label: {
+                      show:false,
                         normal: {
                             show: true,
                                position: 'right',
@@ -615,7 +582,7 @@ $(function () {
                 data: [19325]
             },
             {
-                name: '2011年',
+                // name: '2011年',
                 // barGap: '200%',
                 type: 'bar',
                   barWidth:20,
@@ -653,7 +620,7 @@ $(function () {
                data: [16889]
             },
             {
-                name: '2011年',
+                // name: '2011年',
                 barGap: '260%',
                 type: 'bar',
                   barWidth:20,
@@ -693,7 +660,17 @@ $(function () {
             
         ]
     };
-    
+    pmoutputChart.on('click', function (params) {
+        console.log(params.componentIndex)
+        window.location.href = `../html/productionLine.html?ch=${params.componentIndex}&type=1`
+      })
+        
+    //     if (knoutputChart.containPixel('grid', pointInPixel)) {
+            
+    //       let xIndex = knoutputChart.convertFromPixel({ index:0 }, [params.offsetX, params.offsetY])
+    //       console.log(xIndex)
+    //     }
+    //   })
     // let positionLeft = 1,
     //     max = 100 + 39000 * positionLeft,
     //     value = 34501;
@@ -1072,7 +1049,7 @@ $(function () {
     //     ]
     // };
 
-
+    
 
     // 车间环境
     // 温度
@@ -1805,4 +1782,5 @@ $(function () {
     // 单位产量
     perUnitOutputChartOne.setOption(perUnitOutputOptionOne);
     perUnitOutputChartTwo.setOption(perUnitOutputOptionTwo);
+
 })

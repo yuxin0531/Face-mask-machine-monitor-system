@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-12 08:39:47
- * @LastEditTime: 2020-05-13 10:17:54
+ * @LastEditTime: 2020-05-14 14:53:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\html\productionLine.html
@@ -17,6 +17,8 @@
     <link rel="stylesheet/less" type="text/css" href="../less/base.less">
     <!-- 本页面样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/productionLine.less">
+    <!-- loading样式 -->
+    <link rel="stylesheet/less" type="text/css" href="../less/loading.less">
     <!-- 公共头部样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/head.less">
     <link rel="stylesheet" type="text/css" href="../img/iconfont/iconfont.css">
@@ -28,12 +30,43 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- 公用的本地时间 -->
     <script type="text/javascript" src="../js/common/time.js"></script>
-    <script type="text/javascript" src="../js/productionLine/click.js"></script>
     <!-- 本页面用到的echart -->
     <script type="text/javascript" src="../js/productionLine/myEchart.js"></script>
+    <!-- 获取本页图表数据 -->
+    <script type="text/javascript" src="../js/productionLine/getProductionLineData.js"></script>
 </head>
 
 <body>
+       <!-- loading -->
+       <div class="none">
+        <div class="loading-bgc">
+            <div class=loading-wrap>
+                <div class="loading">
+                    <div class="circle circle1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="circle circle2">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="circle circle3">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="fonst">
+                    <div>loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 产线面板背景 -->
     <div class="productionLine-bgi-wrap">
         <!-- 公共head解构代码放于head.js -->
@@ -70,8 +103,9 @@
                 <!-- 生产数量图表盒子 -->
                 <!-- 746 -->
                 <div class="productionLine-outPut-wrap">
-                    <div class="productionLine-outPut-title bold">KN95口罩生产数量</div>
+                    <div class="productionLine-outPut-title bold">口罩生产数量</div>
                     <div class="productionLine-outPut-num-wrap">
+                        <div class="productionLine-name">KN95</div>
                         2689205
                         <i>个</i>
                     </div>
@@ -83,10 +117,9 @@
                     <div class="productionLine-perUnitOutput-chart-title bold">单位产量</div>
                     <!-- 设备稼动率图表 -->
                     <div class="productionLine-perUnitOutput-chart"></div>
-                    <div class="gauge-label-wrap">
+                    <!-- <div class="gauge-label-wrap">
                         KN95
-                        <!-- <div class="kn-gauge-label">KN95</div> -->
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- 主体的下半部分 -->

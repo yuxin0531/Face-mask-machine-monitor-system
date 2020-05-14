@@ -1,0 +1,47 @@
+{
+    "ProdKN95": 5457544,
+    "ProdpmKZ": 7457544,
+
+    "StockQty": {
+        "actual": [400, 500],
+        "target": [350, 420]
+    },
+
+    "OEE": [{
+            "running": 180,
+            "down": 70
+        },
+        {
+            "running": 60,
+            "down": 40
+        },
+        {
+            "running": 70,
+            "down": 30
+        },
+        {
+            "running": 130,
+            "down": 3
+        }
+    ],
+
+    "KN95": [7542, 6974, 9452, 6357, 7749, 6987, 8745],
+
+    "pmKZ": [37517, 33517, 35517],
+
+    "ENV": {
+        "environmentTemperature": 20,
+        "environmentHumidity": 80,
+        "environmentAirPressure": 101
+    },
+
+    "unitQty": {
+        "KN95": 127,
+        "pmKZ": 142
+    },
+
+    "UHHP": {
+        "KN95": 211,
+        "pmKZ": 328
+    }
+}
