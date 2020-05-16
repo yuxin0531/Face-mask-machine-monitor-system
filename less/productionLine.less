@@ -1,8 +1,129 @@
+// 遮罩层
+.black-mask-wrap {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    position: absolute;
+    z-index: 2;
+    display: none;
+
+    .black-mask {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // 历史模态框
+    .history-modal,
+    .down-modal {
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        width: 600px;
+        height: 400px;
+        position: relative;
+        z-index: 98;
+
+        .blue-head {
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            z-index: 2;
+            background-color: #336db4;
+            width: 100%;
+            height: 80px;
+            color: #fff;
+            font-size: 34px;
+            text-align: center;
+            line-height: 80px;
+        }
+
+        // 确定按钮
+        .history-confirm-btn,
+        .down-confirm-btn {
+            width: 120px;
+            height: 40px;
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+            line-height: 40px;
+            background-color: #336db4;
+            bottom: 100px;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        // 日期显示框
+        .row {
+            margin-top: 170px;
+            position: relative;
+
+            .date-icon {
+                position: absolute;
+                font-size: 30px;
+                line-height: 38px;
+                left: 16px;
+            }
+
+            input {
+                text-align: center;
+                width: 300px;
+                font-size: 30px;
+            }
+        }
+
+        .down-title{
+            font-size: 24px;
+        }
+
+    }
+
+    //导出模态框 
+    .down-wrap {
+        // width: 440px;
+        // position: relative;
+        
+        .row {
+            margin-top: 150px;
+            display: flex;
+            align-items: center;
+
+            .date-icon {
+                margin-left: 142px
+            }
+
+            .star-title,
+            .end-title {
+                color: #000;
+                font-size: 30px;
+                margin-right: 8px;
+            }
+        }
+
+        .down-row-two {
+            margin-top: 20px;
+        }
+
+        .down-confirm-btn{
+            width: 160px;
+            position: absolute;
+            left: 40%;
+            top: 70%;
+        }
+
+    }
+
+   
+}
+
 .productionLine-bgi-wrap {
     background: url("../img/productionLine-bgi.png") no-repeat;
     width: 1920px;
     height: 1080px;
-
+    position: relative;
     // 头部属于公共样式放于head.less
 
     // 主体盒子
@@ -95,7 +216,7 @@
                 .productionLine-equipment-chart {
                     width: 328px;
                     height: 346px;
-                    
+
                     margin: 56px auto 0;
                 }
             }
@@ -112,41 +233,42 @@
                     line-height: 34px;
                     margin-left: 35px;
 
-                   
-            }
 
-            .productionLine-outPut-num-wrap {
-                height: 410px;
-                width: 746px;
-                font-size: 120px;
-                text-align: center;
-                line-height: 410px;
-                position: relative;
-
-                .productionLine-name{
-                    // height: 60px;
-                    position: absolute;
-                    font-size: 46px;
-                    left:34px;
-                    top:-120px;
-                    color:#50a4db;
                 }
 
-                i {
-                    height: 250px;
-                    font-size: 30px;
-                    position: absolute;
-                    top:90px;
-                    right:100px
+                .productionLine-outPut-num-wrap {
+                    height: 410px;
+                    width: 746px;
+                    font-size: 120px;
+                    text-align: center;
+                    line-height: 410px;
+                    position: relative;
+
+                    .productionLine-name {
+                        // height: 60px;
+                        position: absolute;
+                        font-size: 46px;
+                        left: 34px;
+                        top: -120px;
+                        color: #50a4db;
+                    }
+
+                    i {
+                        height: 250px;
+                        font-size: 30px;
+                        position: absolute;
+                        top: 90px;
+                        right: 100px
+                    }
                 }
             }
-        }
 
             // 单位产量图表盒子
             .productionLine-perUnitOutput-chart-wrap {
                 width: 464px;
                 height: 446px;
                 margin-left: 64px;
+
                 // 单位产量标题
                 .productionLine-perUnitOutput-chart-title {
                     height: 34px;
@@ -168,49 +290,61 @@
                 // }
             }
         }
+
         // 主体下半部分
         .productionLine-main-bottom-wrap {
             width: 100%;
             height: 344px;
             position: relative;
+
             // 每小时产量图表
-            .productionLine-hourly-output{
+            .productionLine-hourly-output {
                 margin: 0 auto;
                 width: 1476px;
                 height: 100%;
             }
+
             // 按钮 
-            .export-btn,.history-btn{    
+            .export-btn,
+            .history-btn {
                 width: 164px;
                 height: 36px;
                 line-height: 36px;
                 text-align: center;
                 position: absolute;
-                right:-14px;
+                right: -14px;
                 border-radius: 6px;
                 font-size: 20px;
-                color:#83b2d4;
+                color: #83b2d4;
                 cursor: pointer;
-                background:linear-gradient(to right,#2a536b,#212e4f);
-                
+                background: linear-gradient(to right, #2a536b, #212e4f);
+
                 i {
                     font-size: 20px;
                     // margin-right: 20px;
                     position: relative;
                     left: -20px;
                 }
-                
+
             }
+
             // 鼠标悬停状态
-            .export-btn:hover{background:#2a536b}
-            .history-btn:hover{background:#2a536b}
-            // 导出按钮
-            .export-btn{
-                top:0
+            .export-btn:hover {
+                background: #2a536b
             }
+
+            .history-btn:hover {
+                background: #2a536b
+            }
+
+            // 导出按钮
+            .export-btn {
+                top: 0
+            }
+
             // 历史按钮
-            .history-btn{
-                top:53px;
+            .history-btn {
+                top: 53px;
             }
         }
 

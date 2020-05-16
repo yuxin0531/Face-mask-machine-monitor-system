@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-12 08:39:47
- * @LastEditTime: 2020-05-14 14:53:10
+ * @LastEditTime: 2020-05-16 11:37:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\html\productionLine.html
@@ -21,7 +21,7 @@
     <link rel="stylesheet/less" type="text/css" href="../less/loading.less">
     <!-- 公共头部样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/head.less">
-    <link rel="stylesheet" type="text/css" href="../img/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../img/iconfont.css">
     <!-- less -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <!-- echart -->
@@ -34,41 +34,77 @@
     <script type="text/javascript" src="../js/productionLine/myEchart.js"></script>
     <!-- 获取本页图表数据 -->
     <script type="text/javascript" src="../js/productionLine/getProductionLineData.js"></script>
+    <!--  -->
+    <script type="text/javascript" src="../js/productionLine/click.js"></script>
+    <link rel="stylesheet" type="text/css" href="../less/laydate.css">
 </head>
 
 <body>
-       <!-- loading -->
-       <div class="none">
-        <div class="loading-bgc">
-            <div class=loading-wrap>
-                <div class="loading">
-                    <div class="circle circle1">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+
+
+    <!-- 产线面板背景 -->
+    <div class="productionLine-bgi-wrap">
+        <!-- loading -->
+        <div class="none">
+            <div class="loading-bgc">
+                <div class=loading-wrap>
+                    <div class="loading">
+                        <div class="circle circle1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="circle circle2">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="circle circle3">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="circle circle2">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div class="fonst">
+                        <div>loading...</div>
                     </div>
-                    <div class="circle circle3">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="fonst">
-                    <div>loading...</div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 产线面板背景 -->
-    <div class="productionLine-bgi-wrap">
+        <!-- 遮罩层 -->
+        <div class="black-mask-wrap">
+            <!-- 历史模态框 -->
+            <div class="black-mask">
+                <div class="history-modal">
+                    <div class="blue-head">请选择您所想查看的日期</div>
+                    <div class="row">
+                        <i class="date-icon iconfont icon-riqi"></i>
+                        <input type="text" class="room" id="startTime" readonly>
+                    </div>
+                    <div class="history-confirm-btn">确定</div>
+                </div>
+
+                <div class="down-modal">
+                    <div class="blue-head down-title">请选择您所想导出的时间段(仅支持导出近3个月数据)</div>
+                    <div class="down-wrap">
+                        <div class="row down-row-one">
+                            <div class="star-title">开始时间:</div>
+                            <i class="date-icon iconfont icon-riqi"></i>
+                            <input type="text" class="room start-down" id="startTime" readonly>
+                        </div>
+                        <div class="row down-row-two">
+                            <div class="end-title">结束时间:</div>
+                            <i class="date-icon iconfont icon-riqi"></i>
+                            <input type="text" class="room end-down" id="startTime" readonly>
+                        </div>
+                        <div class="down-confirm-btn">确定</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- 公共head解构代码放于head.js -->
         <div class="head-wrap">
         </div>
@@ -136,6 +172,7 @@
     </div>
     <!-- 公共头部的html -->
     <script type="text/javascript" src="../js/common/head.js"></script>
+    <script type="text/javascript" src="../js/productionLine/laydate.js"></script>
 </body>
 
 </html>
