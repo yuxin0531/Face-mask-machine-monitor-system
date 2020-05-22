@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-12 08:39:47
- * @LastEditTime: 2020-05-16 11:37:14
+ * @LastEditTime: 2020-05-22 15:25:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\html\productionLine.html
@@ -23,11 +23,13 @@
     <link rel="stylesheet/less" type="text/css" href="../less/head.less">
     <link rel="stylesheet" type="text/css" href="../img/iconfont.css">
     <!-- less -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script src="../js/common/less.min.js"></script>
     <!-- echart -->
-    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="../js/common/echarts.min.js"></script>
     <!-- jq -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/common/jquery-3.4.1.min.js"></script>
+    <script src="../js/common/jsm.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <!-- 公用的本地时间 -->
     <script type="text/javascript" src="../js/common/time.js"></script>
     <!-- 本页面用到的echart -->
@@ -37,13 +39,19 @@
     <!--  -->
     <script type="text/javascript" src="../js/productionLine/click.js"></script>
     <link rel="stylesheet" type="text/css" href="../less/laydate.css">
+    <!-- 导出的时间选择器必须导入这个版本的jq不然会有点问题 -->
+    <script src="../js/common/jquery.min.js"></script>
+    <!-- 导出的时间选择的js文件 -->
+    <script type="text/javascript" src="../js/productionLine/downLaydate.js"></script>
+    <!-- 导出的时间选择器的css文件 -->
+    <link rel="stylesheet" type="text/css" href="../less/downLaydate.css" />
 </head>
 
 <body>
-
-
     <!-- 产线面板背景 -->
     <div class="productionLine-bgi-wrap">
+        <!-- 返回首页 -->
+        <i class="home-icon iconfont icon-home"><span class="return">首页</span></i>
         <!-- loading -->
         <div class="none">
             <div class="loading-bgc">
@@ -85,11 +93,17 @@
                         <input type="text" class="room" id="startTime" readonly>
                     </div>
                     <div class="history-confirm-btn">确定</div>
+                    <div class="history-cancel-btn">取消</div>
                 </div>
 
                 <div class="down-modal">
                     <div class="blue-head down-title">请选择您所想导出的时间段(仅支持导出近3个月数据)</div>
-                    <div class="down-wrap">
+                    <div class="ta_date" id="div_date1">
+                        <span class="date_title" id="date1"></span>
+                        <div class="down-confirm-btn">确定</div>
+                        <div class="down-cancel-btn">取消</div>
+                    </div>
+                    <!-- <div class="down-wrap">
                         <div class="row down-row-one">
                             <div class="star-title">开始时间:</div>
                             <i class="date-icon iconfont icon-riqi"></i>
@@ -101,7 +115,7 @@
                             <input type="text" class="room end-down" id="startTime" readonly>
                         </div>
                         <div class="down-confirm-btn">确定</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -142,7 +156,7 @@
                     <div class="productionLine-outPut-title bold">口罩生产数量</div>
                     <div class="productionLine-outPut-num-wrap">
                         <div class="productionLine-name">KN95</div>
-                        2689205
+                        <span class="totalQty">2689205</span>
                         <i>个</i>
                     </div>
                 </div>
@@ -172,7 +186,51 @@
     </div>
     <!-- 公共头部的html -->
     <script type="text/javascript" src="../js/common/head.js"></script>
+    <!-- 历史日期选择器 -->
     <script type="text/javascript" src="../js/productionLine/laydate.js"></script>
+    <!-- 导出的日期选择的配置文件 -->
+    <script type="text/javascript" src="../js/productionLine/downLaydateConfig.js"></script>
+    <script>
+        $(function () {
+             // 获取当前时间
+             getNowTime()
+            // 初始化产线的图表数据
+            initProductionLineEcharts()
+            // 导出的日期选择插件的配置项文件
+            downLaydateConfig()
+            // 产线页面的所有点击事件
+            productionLineClick()
+            //请求数据
+            var ws = new JSM.WS();
+            //  获取?后面的参数
+            var url = location.search;
+            //  切取为数组[?ch,0&type,0]
+            var num = url.split('=');
+            //  获取ch
+            var ch = parseInt(num[1]);
+            //  获取type
+            var type = num[2];
+            console.log(num[2]);
+            type == 0 ? $(".productionLine-name").text(`KN95 产线${ch-3}`) : $(".productionLine-name").text(`平面 产线${ch}`);
+            ws.init({
+                url: `192.168.10.128:8000/line/?ch=${ch}&u=2&ts=1588956972&token=AAABBBCCC&data=debug`
+            });
+            ws.connect()
+                .receive(setProduvtionLineValue)
+
+                //{type: 'error', state: 0, message: 'msg'}
+                .error(function (evt) {
+                    console.log("ERROR::" + evt.message)
+                });
+
+
+            setInterval(function () {
+                ws.send(`LINEON:${ch}`);
+            }, 3000);
+            // 删除loading
+            $('.none').remove()
+        })
+    </script>
 </body>
 
 </html>

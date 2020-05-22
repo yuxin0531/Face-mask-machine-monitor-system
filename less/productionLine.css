@@ -40,8 +40,13 @@
 .black-mask-wrap .history-modal .history-confirm-btn,
 .black-mask-wrap .down-modal .history-confirm-btn,
 .black-mask-wrap .history-modal .down-confirm-btn,
-.black-mask-wrap .down-modal .down-confirm-btn {
+.black-mask-wrap .down-modal .down-confirm-btn,
+.black-mask-wrap .history-modal .down-cancel-btn,
+.black-mask-wrap .down-modal .down-cancel-btn,
+.black-mask-wrap .history-modal .history-cancel-btn,
+.black-mask-wrap .down-modal .history-cancel-btn {
   width: 120px;
+  border-radius: 5px;
   height: 40px;
   position: absolute;
   z-index: 2;
@@ -50,20 +55,38 @@
   background-color: #336db4;
   bottom: 100px;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
+}
+.black-mask-wrap .history-modal .down-confirm-btn,
+.black-mask-wrap .down-modal .down-confirm-btn,
+.black-mask-wrap .history-modal .down-cancel-btn,
+.black-mask-wrap .down-modal .down-cancel-btn,
+.black-mask-wrap .history-modal .history-confirm-btn,
+.black-mask-wrap .down-modal .history-confirm-btn,
+.black-mask-wrap .history-modal .history-cancel-btn,
+.black-mask-wrap .down-modal .history-cancel-btn {
+  bottom: 20px;
+  right: 180px;
+}
+.black-mask-wrap .history-modal .down-cancel-btn,
+.black-mask-wrap .down-modal .down-cancel-btn,
+.black-mask-wrap .history-modal .history-cancel-btn,
+.black-mask-wrap .down-modal .history-cancel-btn {
+  right: 30px;
 }
 .black-mask-wrap .history-modal .row,
 .black-mask-wrap .down-modal .row {
-  margin-top: 170px;
+  margin-top: 194px;
   position: relative;
 }
 .black-mask-wrap .history-modal .row .date-icon,
 .black-mask-wrap .down-modal .row .date-icon {
   position: absolute;
-  font-size: 30px;
+  font-size: 42px;
   line-height: 38px;
   left: 16px;
+  top: 7px;
 }
 .black-mask-wrap .history-modal .row input,
 .black-mask-wrap .down-modal .row input {
@@ -75,6 +98,10 @@
 .black-mask-wrap .down-modal .down-title {
   font-size: 24px;
 }
+.black-mask-wrap .down-modal {
+  width: 600px;
+  height: 500px;
+}
 .black-mask-wrap .down-wrap .row {
   margin-top: 150px;
   display: flex;
@@ -83,26 +110,29 @@
 .black-mask-wrap .down-wrap .row .date-icon {
   margin-left: 142px;
 }
-.black-mask-wrap .down-wrap .row .star-title,
-.black-mask-wrap .down-wrap .row .end-title {
-  color: #000;
-  font-size: 30px;
-  margin-right: 8px;
-}
 .black-mask-wrap .down-wrap .down-row-two {
   margin-top: 20px;
 }
-.black-mask-wrap .down-wrap .down-confirm-btn {
-  width: 160px;
-  position: absolute;
-  left: 40%;
-  top: 70%;
+.home-icon:hover {
+  color: #336db4;
+  cursor: pointer;
 }
 .productionLine-bgi-wrap {
   background: url("../img/productionLine-bgi.png") no-repeat;
   width: 1920px;
   height: 1080px;
-  position: relative;
+  position: absolute;
+}
+.productionLine-bgi-wrap .home-icon {
+  z-index: 1;
+  position: absolute;
+  top: 31px;
+  left: 66px;
+  font-size: 34px;
+}
+.productionLine-bgi-wrap .home-icon .return {
+  padding-left: 10px;
+  font-size: 16px;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap {
   margin-top: 40px;
@@ -196,6 +226,7 @@
   text-align: center;
   line-height: 410px;
   position: relative;
+  color: #fff;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-outPut-wrap .productionLine-outPut-num-wrap .productionLine-name {
   position: absolute;
@@ -210,6 +241,7 @@
   position: absolute;
   top: 90px;
   right: 100px;
+  color: #fff;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-top-wrap .productionLine-perUnitOutput-chart-wrap {
   width: 464px;

@@ -1,4 +1,4 @@
-$(function () {
+function getNowTime() {
     var t = null;
     t = setTimeout(time, 1000); //開始运行
     function time() {
@@ -28,4 +28,4 @@ $(function () {
         t = setTimeout(time, 1000); //设定定时器，循环运行     
     }
 
-})
+}

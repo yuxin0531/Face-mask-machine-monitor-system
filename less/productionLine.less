@@ -17,7 +17,8 @@
 
     // 历史模态框
     .history-modal,
-    .down-modal {
+    .down-modal 
+    {
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -40,10 +41,13 @@
             line-height: 80px;
         }
 
-        // 确定按钮
+        // 确定按钮和取消按钮
         .history-confirm-btn,
-        .down-confirm-btn {
+        .down-confirm-btn,
+        .down-cancel-btn,
+        .history-cancel-btn{
             width: 120px;
+            border-radius: 5px;
             height: 40px;
             position: absolute;
             z-index: 2;
@@ -52,20 +56,35 @@
             background-color: #336db4;
             bottom: 100px;
             color: #fff;
-            font-size: 24px;
+            font-size: 18px;
             cursor: pointer;
         }
 
+        .down-confirm-btn,
+        .down-cancel-btn,
+        .history-confirm-btn,
+        .history-cancel-btn{
+            bottom: 20px;
+            right: 180px;
+        }
+
+        .down-cancel-btn,
+        .history-cancel-btn{
+            right: 30px;
+        }
+
+        
         // 日期显示框
         .row {
-            margin-top: 170px;
+            margin-top: 194px;
             position: relative;
 
             .date-icon {
                 position: absolute;
-                font-size: 30px;
+                font-size: 42px;
                 line-height: 38px;
                 left: 16px;
+                top:7px
             }
 
             input {
@@ -80,7 +99,11 @@
         }
 
     }
-
+    // 导出模态框
+    .down-modal{
+        width: 600px;
+        height: 500px;
+    }
     //导出模态框 
     .down-wrap {
         // width: 440px;
@@ -95,37 +118,56 @@
                 margin-left: 142px
             }
 
-            .star-title,
-            .end-title {
-                color: #000;
-                font-size: 30px;
-                margin-right: 8px;
-            }
+            // .star-title,
+            // .end-title {
+            //     color: #000;
+            //     font-size: 30px;
+            //     margin-right: 8px;
+            // }
         }
 
         .down-row-two {
             margin-top: 20px;
         }
 
-        .down-confirm-btn{
-            width: 160px;
-            position: absolute;
-            left: 40%;
-            top: 70%;
-        }
+        // .down-confirm-btn{
+        //     width: 160px;
+        //     position: absolute;
+        //     left: 40%;
+        //     top: 70%;
+        // }
 
     }
 
    
 }
-
+// 鼠标移动到home按钮变色
+.home-icon:hover {
+    color: #336db4;
+    cursor: pointer;
+ }
 .productionLine-bgi-wrap {
     background: url("../img/productionLine-bgi.png") no-repeat;
     width: 1920px;
     height: 1080px;
-    position: relative;
+    position: absolute; 
     // 头部属于公共样式放于head.less
 
+    // 返回主页按钮
+    .home-icon{
+        z-index: 1;
+        position: absolute;
+        top:31px;
+        left:66px;
+        font-size: 34px;
+        // 首页字体
+        .return{
+            padding-left:10px;
+            font-size:16px;
+        }
+    }
+
+    
     // 主体盒子
     .productionLine-main-wrap {
         margin-top: 40px;
@@ -243,6 +285,7 @@
                     text-align: center;
                     line-height: 410px;
                     position: relative;
+                    color:#fff;
 
                     .productionLine-name {
                         // height: 60px;
@@ -258,7 +301,8 @@
                         font-size: 30px;
                         position: absolute;
                         top: 90px;
-                        right: 100px
+                        right: 100px;
+                        color:#fff
                     }
                 }
             }

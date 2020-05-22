@@ -1,10 +1,14 @@
-$(function () {
-    // 设备稼动率图表
-    var productionLineMaskQuantityChart = echarts.init(document.getElementsByClassName('productionLine-equipment-chart')[0]);
-    // 单位产量图表
-    var productionLineperUnitOutputChart = echarts.init(document.getElementsByClassName('productionLine-perUnitOutput-chart')[0]);
-    // 每小时产量
-    var productionLineOutPutChart = echarts.init(document.getElementsByClassName('productionLine-hourly-output')[0]);
+var productionLineChartArr = []
+function initProductionLineEcharts() {
+    productionLineChartArr[0] = echarts.init(document.getElementsByClassName('productionLine-equipment-chart')[0]);
+    productionLineChartArr[1] = echarts.init(document.getElementsByClassName('productionLine-perUnitOutput-chart')[0]);
+    productionLineChartArr[2] = echarts.init(document.getElementsByClassName('productionLine-hourly-output')[0]);
+    // // 设备稼动率图表
+    // var productionLineMaskQuantityChart = echarts.init(document.getElementsByClassName('productionLine-equipment-chart')[0]);
+    // // 单位产量图表
+    // var productionLineperUnitOutputChart = echarts.init(document.getElementsByClassName('productionLine-perUnitOutput-chart')[0]);
+    // // 每小时产量
+    // var productionLineOutPutChart = echarts.init(document.getElementsByClassName('productionLine-hourly-output')[0]);
    
     
     // 设备稼动率图表
@@ -431,9 +435,12 @@ $(function () {
     };
 
     // 设备稼动率图表
-    productionLineMaskQuantityChart.setOption(productionLineMaskQuantityOption);
+    productionLineChartArr[0].option = productionLineMaskQuantityOption;
+    productionLineChartArr[0].setOption(productionLineMaskQuantityOption);
     // 单位产量
-    productionLineperUnitOutputChart.setOption(productionLineperUnitOutputOption);
+    productionLineChartArr[1].option=productionLineperUnitOutputOption;
+    productionLineChartArr[1].setOption(productionLineperUnitOutputOption);
     // 每小时产量
-    productionLineOutPutChart.setOption(productionLineOutPutOption);
-})
+    productionLineChartArr[2].option=productionLineOutPutOption;
+    productionLineChartArr[2].setOption(productionLineOutPutOption);
+}

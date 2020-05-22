@@ -17,7 +17,7 @@
         }
         return fmt;
     }
-    var timeNow = new Date().format("yyyy-M-dd");
+    var timeNow = new Date().format("yyyy-MM-dd");
     $(".room").val(timeNow)
     var dateNow = timeNow.split('-')[2]
     var monthNow = timeNow.split('-')[1]
@@ -31,6 +31,7 @@
         formateToDate: function (dateStr) {
             if (dateStr) {
                 return new Date(dateStr);
+                
             } else {
                 return null;
             }
@@ -86,7 +87,7 @@
                 } else if (date > lastDate && thisMonth == 1) {
                     thisYear = year + 1;
                 }
-
+              
                 ret.push({
                     month: thisMonth,
                     date: date,
@@ -189,7 +190,7 @@
             var month = startDate.getMonth() + 1;
             //日
             var date = startDate.getDate();
-
+    
             this.initPageYear(year);
             this.initPageMonth(month);
             this.initPageDate(date);
@@ -432,7 +433,9 @@
                     var month = _this.curStartDate.getMonth() + 1;
                     // 日
                     var date = _this.curStartDate.getDate();
-
+                    // 日期或月份一位数的时候补0
+                    var month =(month+'').length ===1? '0'+month:month;
+                    var date =(date+'').length ===1? '0'+date:date;
                     var str = year + "-" + month + "-" + date;
                     $("input.dateVisited").val(str);
                     $("input.dateVisited").removeClass('dateVisited');

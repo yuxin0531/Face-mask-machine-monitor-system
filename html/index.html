@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <!-- 基础样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/base.less">
     <!-- 本页面样式 -->
@@ -14,28 +15,28 @@
     <!-- 公共头部样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/head.less">
     <!-- less -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    <script src="../js/common/less.min.js"></script>
     <!-- echart -->
-    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+    <script src="../js/common/echarts.min.js"></script>
     <!-- jq -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/common/jquery-3.4.1.min.js"></script>
     <!-- 本页用到的echart -->
     <script type="text/javascript" src="../js/index/myEchart.js"></script>
     <!-- 公共的本地时间 -->
     <script type="text/javascript" src="../js/common/time.js"></script>
     <!-- 监控列表 -->
     <script type="text/javascript" src="../js/index/monitorList.js"></script>
+    <script type="text/javascript" src="../js/index/monitoringClick.js"></script>
     <!-- 动态渲染echart和数据动态获取口罩生产数量与人均产量数 -->
     <script type="text/javascript" src="../js/index/getIndexData.js"></script>
-    <!-- 动态获取口罩生产数量与人均产量数 -->
-    <!-- <script type="text/javascript" src="../js/index/numObj.js"></script> -->
-    <!-- 登录 -->
-    <script type="text/javascript" src="../js/login/login.js"></script>
+    <!-- jsm -->
+    <script type="text/javascript" src="../js/common/jsm.min.js"></script>
 </head>
+
 <body>
     <!--因为display：none与display：flex不能同时作用同一个标签
         所有class="none"的div用于显示隐藏loading效果 -->
-        <!-- loading -->
+    <!-- loading -->
     <div class="none">
         <div class="loading-bgc">
             <div class=loading-wrap>
@@ -67,6 +68,13 @@
     </div>
     <!-- 面板背景 -->
     <div id="bgi-wrap">
+        <!-- 黑色遮罩层 -->
+        <div class="index-mask-wrap">
+            <div class="index-mask">
+                <!-- 监控显示 -->
+                <div class="monitoring-show"></div>
+            </div>
+        </div>
         <!-- 头部 -->
         <div class="head-wrap">
             <!-- logo和标题 -->
@@ -118,9 +126,9 @@
                 <!-- 监控盒子 -->
                 <div class="monitoring-wrap">
                     <!-- 监控1 -->
-                    <div class="monitoring-one"></div>
+                    <div class="monitoring-one monitoring-click"></div>
                     <!-- 监控2 -->
-                    <div class="monitoring-two"></div>
+                    <div class="monitoring-two monitoring-click"></div>
                 </div>
                 <!-- 设备稼动率图表 -->
                 <div class="equipment-chart-wrap">
@@ -252,6 +260,27 @@
     </div>
     <!-- 公共头部的html -->
     <script type="text/javascript" src="../js/common/head.js"></script>
+    <script>
+        $(function () {
+            monitoringShow()
+            // 获取当前时间
+            getNowTime()
+            //初始化Echart
+            initEcharts()
+            // 预留函数
+            initIndexData()
+            // 获取监控列表
+            getMonitorList()
+            //初始WS 服务数据
+            $.jsm = new JSM();
+            $.jsm.api.connect()
+                .receive(setElementValue)
+                .error(function (evt) {
+                    console.log("ERROR::" + evt.message)
+                });
+            $('.none').remove()
+        })
+    </script>
 </body>
 
 </html>

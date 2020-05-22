@@ -3,6 +3,26 @@
   width: 1920px;
   height: 1080px;
 }
+#bgi-wrap .index-mask-wrap {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 2;
+  display: none;
+}
+#bgi-wrap .index-mask-wrap .index-mask {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bgi-wrap .index-mask-wrap .monitoring-show {
+  background-color: #000;
+  width: 1200px;
+  height: 700px;
+}
 #bgi-wrap .main-wrap {
   width: 1843px;
   height: 950px;
@@ -52,7 +72,7 @@
   margin-left: 74px;
 }
 #bgi-wrap .main-wrap .main-left-wrap .stock-chart-warp .stock-chart {
-  margin-top: 22px;
+  margin-top: 34px;
   margin-left: 20px;
 }
 #bgi-wrap .main-wrap .main-center-wrap {
@@ -237,10 +257,11 @@
 }
 #bgi-wrap .main-wrap .main-right-wrap .environment-chart-wrap {
   width: 427px;
-  height: 192px;
+  height: 212px;
 }
 #bgi-wrap .main-wrap .main-right-wrap .environment-chart-wrap .environment-title {
   margin-left: 34px;
+  margin-bottom: 7px;
 }
 #bgi-wrap .main-wrap .main-right-wrap .environment-chart-wrap .environment-chart {
   margin-left: 23px;
@@ -256,12 +277,12 @@
   height: 160px;
 }
 #bgi-wrap .main-wrap .main-right-wrap .perUnitOutput-chart-wrap {
-  height: 254px;
+  height: 235px;
   width: 422px;
 }
 #bgi-wrap .main-wrap .main-right-wrap .perUnitOutput-chart-wrap .perUnitOutput-chart-title {
   margin-left: 34px;
-  margin-bottom: 32px;
+  margin-bottom: 21px;
 }
 #bgi-wrap .main-wrap .main-right-wrap .perUnitOutput-chart-wrap .perUnitOutput-chart {
   height: 160px;

@@ -176,6 +176,7 @@ a {
 }
 
 .aui-date {
+    font-size: 30px;
     height: 44px;
     position: relative;
     display: -webkit-box;

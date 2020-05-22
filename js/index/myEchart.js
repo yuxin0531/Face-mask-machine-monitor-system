@@ -1,17 +1,21 @@
-$(function () {
+//全局变量 ，封装Echarts
+var chartArr = [];
+
+function initEcharts() {
     // 初始化
-    var maskQuantityChart = echarts.init(document.getElementsByClassName('stock-chart')[0]);
-    var equipmentChart = echarts.init(document.getElementsByClassName('chartOne')[0]);
-    var equipmentChartTwo = echarts.init(document.getElementsByClassName('chartTwo')[0]);
-    var equipmentChartThree = echarts.init(document.getElementsByClassName('chartThree')[0]);
-    var equipmentChartFour = echarts.init(document.getElementsByClassName('chartFour')[0]);
-    var knoutputChart = echarts.init(document.getElementsByClassName('knoutput-chart')[0]);
-    var pmoutputChart = echarts.init(document.getElementsByClassName('pmoutput-chart')[0]);
-    var environmentChartOne = echarts.init(document.getElementsByClassName('environment-chart-one')[0]);
-    var environmentChartTwo = echarts.init(document.getElementsByClassName('environment-chart-two')[0]);
-    var environmentChartThree = echarts.init(document.getElementsByClassName('environment-chart-three')[0]);
-    var perUnitOutputChartOne = echarts.init(document.getElementsByClassName('perUnitOutput-chart-one')[0]);
-    var perUnitOutputChartTwo = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
+    //声明Echarts对象
+    chartArr[0] = echarts.init(document.getElementsByClassName('stock-chart')[0]);
+    chartArr[1] = echarts.init(document.getElementsByClassName('chartOne')[0]);
+    chartArr[2] = echarts.init(document.getElementsByClassName('chartTwo')[0]);
+    chartArr[3] = echarts.init(document.getElementsByClassName('chartThree')[0]);
+    chartArr[4] = echarts.init(document.getElementsByClassName('chartFour')[0]);
+    chartArr[5] = echarts.init(document.getElementsByClassName('knoutput-chart')[0]);
+    chartArr[6] = echarts.init(document.getElementsByClassName('pmoutput-chart')[0]);
+    chartArr[7] = echarts.init(document.getElementsByClassName('environment-chart-one')[0]);
+    chartArr[8] = echarts.init(document.getElementsByClassName('environment-chart-two')[0]);
+    chartArr[9] = echarts.init(document.getElementsByClassName('environment-chart-three')[0]);
+    chartArr[10] = echarts.init(document.getElementsByClassName('perUnitOutput-chart-one')[0]);
+    chartArr[11] = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
     // 口罩入库数量图表
     maskOption = {
         legend: {
@@ -40,12 +44,12 @@ $(function () {
             axisLabel: {
                 show: true,
                 // X轴标识文字距离x轴的距离
-                margin:25,
+                margin: 25,
                 textStyle: {
                     // x标识文字颜色和大小
                     color: '#fff',
-                    fontSize:16,
-                          
+                    fontSize: 16,
+
                 }
             },
             // x轴标尺
@@ -120,7 +124,7 @@ $(function () {
                         }, {
                             offset: 0.5,
                             color: 'rgba(112, 125, 187, 1)' // 100% 处的颜色
-                        },{
+                        }, {
                             offset: 1,
                             color: 'rgba(0, 192, 255, 1)' // 100% 处的颜色
                         }],
@@ -137,10 +141,9 @@ $(function () {
         ]
     };
 
-    
+
     // 设备稼动率图表
     // KN95口罩
-    // var equipmentChart = echarts.init(document.getElementsByClassName('chartOne')[0]);
     equipmentOption = {
         title: {
             text: 'KN95口罩',
@@ -163,16 +166,21 @@ $(function () {
             center: ['50%', '50%'],
             label: {
                 normal: {
-                        show: true,
-                        fontSize: 16,
-                        position:'inner', //标签的位置
-                        formatter: '{d}%'
+                    show: true,
+                    fontSize: 16,
+                    position: 'inner', //标签的位置
+                    formatter: '{d}%'
                 }
-        },
-            data:[
-                {value:360, name:'运行时间'},
-                {value:100, name:'停机时间'}
-        ],
+            },
+            data: [{
+                    value: 360,
+                    name: '运行时间'
+                },
+                {
+                    value: 100,
+                    name: '停机时间'
+                }
+            ],
             // radius: '55%',
             // center: ['50%', '60%'],
             // data: [{
@@ -215,6 +223,17 @@ $(function () {
 
     // 平面口罩
     equipmentOptionTwo = {
+        title: {
+            text: '平面口罩',
+            bottom: 10,
+            left: 'center',
+            textStyle: {
+                color: '#3ed3e0',
+                fontSize: '16',
+                fontWeight: 'normal',
+                lineHeight: 0
+            }
+        },
         tooltip: {
             trigger: 'item',
             formatter: "{b} : {c} 分钟({d}%)"
@@ -225,16 +244,21 @@ $(function () {
             center: ['50%', '50%'],
             label: {
                 normal: {
-                        show: true,
-                        fontSize: 16,
-                        position:'inner', //标签的位置
-                        formatter: '{d}%'
+                    show: true,
+                    fontSize: 16,
+                    position: 'inner', //标签的位置
+                    formatter: '{d}%'
                 }
-        },
-            data:[
-                {value:360, name:'运行时间'},
-                {value:100, name:'停机时间'}
-        ],
+            },
+            data: [{
+                    value: 360,
+                    name: '运行时间'
+                },
+                {
+                    value: 100,
+                    name: '停机时间'
+                }
+            ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,
@@ -278,16 +302,21 @@ $(function () {
             center: ['50%', '50%'],
             label: {
                 normal: {
-                        show: true,
-                        fontSize: 16,
-                        position:'inner', //标签的位置
-                        formatter: '{d}%'
+                    show: true,
+                    fontSize: 16,
+                    position: 'inner', //标签的位置
+                    formatter: '{d}%'
                 }
-        },
-            data:[
-                {value:360, name:'运行时间'},
-                {value:100, name:'停机时间'}
-        ],
+            },
+            data: [{
+                    value: 360,
+                    name: '运行时间'
+                },
+                {
+                    value: 100,
+                    name: '停机时间'
+                }
+            ],
             labelLine: {
                 normal: {
                     show: false
@@ -324,16 +353,21 @@ $(function () {
             center: ['50%', '50%'],
             label: {
                 normal: {
-                        show: true,
-                        fontSize: 16,
-                        position:'inner', //标签的位置
-                        formatter: '{d}%'
+                    show: true,
+                    fontSize: 16,
+                    position: 'inner', //标签的位置
+                    formatter: '{d}%'
                 }
-        },
-            data:[
-                {value:360, name:'运行时间'},
-                {value:100, name:'停机时间'}
-        ],
+            },
+            data: [{
+                    value: 360,
+                    name: '运行时间'
+                },
+                {
+                    value: 100,
+                    name: '停机时间'
+                }
+            ],
             // emphasis: {
             //     itemStyle: {
             //         shadowBlur: 10,
@@ -485,21 +519,22 @@ $(function () {
             },
         ],
     };
-    
+
     // knoutputChart.getZr().on('click', params => {
     //     let pointInPixel = [params.offsetX, params.offsetY]
     //     console.log(pointInPixel);//位置
-        
+
     //     if (knoutputChart.containPixel('grid', pointInPixel)) {
     //       let xIndex = knoutputChart.convertFromPixel({ seriesIndex: 0 }, [params.offsetX, params.offsetY])[0]
     //       console.log(xIndex)
     //     }
     //   })
 
-    knoutputChart.on('click', function (params) {
-        console.log(params.dataIndex)
-        window.location.href = `../html/productionLine.html?ch=${params.dataIndex}&type=0`
-      })
+    chartArr[5].on('click', function (params) {
+        var ch = params.dataIndex+4
+        // console.log(params.dataIndex)
+        window.location.href = `../html/productionLine.html?ch=${ch}&type=0`
+    })
 
     // 平面口罩产量
     pmoutputOption = {
@@ -510,12 +545,12 @@ $(function () {
         //         type: 'shadow'
         //     }
         // },
-    
+
         grid: {
             left: '0%',
             right: '0%',
             // bottom: '0%',
-            top:"20%",
+            top: "20%",
             // containLabel: true
         },
         xAxis: {
@@ -527,13 +562,13 @@ $(function () {
             axisTick: {
                 show: false,
             },
-            splitLine:{
+            splitLine: {
                 show: false,
             },
-            axisLabel:{
-                show:false
+            axisLabel: {
+                show: false
             },
-            triggerEvent:true
+            triggerEvent: true
         },
         yAxis: {
             type: 'category',
@@ -541,31 +576,30 @@ $(function () {
                 show: false
             },
         },
-        series: [
-            {
+        series: [{
                 // name: '2012年',
-                 barGap: '180%',
+                barGap: '180%',
                 //  barCategoryGap:'500%',
-                 barWidth: 20,
+                barWidth: 20,
                 type: 'bar',
-                  label: {
-                      show:false,
-                        normal: {
-                            show: true,
-                               position: 'right',
-                                // padding: 10,
-                                offset:[-70,-25],
-                                fontSize: 16,
-                            textStyle: {
-                                color: '#fff'
-                            },
-                       
-                        }
-                    },
-                 itemStyle:{
-                     normal: {
-                         barBorderRadius: 30,
-                           color: new echarts.graphic.LinearGradient(
+                label: {
+                    show: false,
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        // padding: 10,
+                        offset: [-70, -25],
+                        fontSize: 16,
+                        textStyle: {
+                            color: '#fff'
+                        },
+
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: 30,
+                        color: new echarts.graphic.LinearGradient(
                             0, 0, 1, 0,
                             [{
                                     offset: 0,
@@ -577,33 +611,33 @@ $(function () {
                                 },
                             ]
                         ),
-                     }
-                 },
+                    }
+                },
                 data: [19325]
             },
             {
                 // name: '2011年',
                 // barGap: '200%',
                 type: 'bar',
-                  barWidth:20,
+                barWidth: 20,
                 //   type: 'bar',
-                  label: {
-                        normal: {
-                            show: true,
-                               position: 'right',
-                                // padding: 10,
-                                offset:[-70,-25],
-                                fontSize: 16,
-                            textStyle: {
-                                color: '#fff'
-                            },
-                       
-                        }
-                    },
-                 itemStyle:{
-                     normal: {
-                         barBorderRadius: 30,
-                           color: new echarts.graphic.LinearGradient(
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        // padding: 10,
+                        offset: [-70, -25],
+                        fontSize: 16,
+                        textStyle: {
+                            color: '#fff'
+                        },
+
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: 30,
+                        color: new echarts.graphic.LinearGradient(
                             0, 0, 1, 0,
                             [{
                                     offset: 0,
@@ -615,33 +649,33 @@ $(function () {
                                 },
                             ]
                         ),
-                     }
-                 },
-               data: [16889]
+                    }
+                },
+                data: [16889]
             },
             {
                 // name: '2011年',
                 barGap: '260%',
                 type: 'bar',
-                  barWidth:20,
+                barWidth: 20,
                 //   type: 'bar',
-                  label: {
-                        normal: {
-                            show: true,
-                               position: 'right',
-                                // padding: 10,
-                                offset:[-70,-25],
-                                fontSize: 16,
-                            textStyle: {
-                                color: '#fff'
-                            },
-                       
-                        }
-                    },
-                 itemStyle:{
-                     normal: {
-                         barBorderRadius: 30,
-                           color: new echarts.graphic.LinearGradient(
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'right',
+                        // padding: 10,
+                        offset: [-70, -25],
+                        fontSize: 16,
+                        textStyle: {
+                            color: '#fff'
+                        },
+
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        barBorderRadius: 30,
+                        color: new echarts.graphic.LinearGradient(
                             0, 0, 1, 0,
                             [{
                                     offset: 0,
@@ -653,20 +687,21 @@ $(function () {
                                 },
                             ]
                         ),
-                     }
-                 },
-               data: [18526]
+                    }
+                },
+                data: [18526]
             },
-            
+
         ]
     };
-    pmoutputChart.on('click', function (params) {
-        console.log(params.componentIndex)
-        window.location.href = `../html/productionLine.html?ch=${params.componentIndex}&type=1`
-      })
-        
+    chartArr[6].on('click', function (params) {
+        // console.log(params.componentIndex)
+        var ch =params.componentIndex+1
+        window.location.href = `../html/productionLine.html?ch=${ch}&type=1`
+    })
+
     //     if (knoutputChart.containPixel('grid', pointInPixel)) {
-            
+
     //       let xIndex = knoutputChart.convertFromPixel({ index:0 }, [params.offsetX, params.offsetY])
     //       console.log(xIndex)
     //     }
@@ -1049,7 +1084,7 @@ $(function () {
     //     ]
     // };
 
-    
+
 
     // 车间环境
     // 温度
@@ -1093,55 +1128,55 @@ $(function () {
             hoverAnimation: false,
             // center: ['15%', '50%'],
             data: [{
-                value: 60,
-                label: {
-                    normal: {
-                        rich: {
-                            a: {
-                                color: '#fff',
-                                align: 'center',
-                                fontSize: 20,
-                                fontWeight: "bold"
+                    value: 60,
+                    label: {
+                        normal: {
+                            rich: {
+                                a: {
+                                    color: '#fff',
+                                    align: 'center',
+                                    fontSize: 20,
+                                    fontWeight: "bold"
+                                },
+                                b: {
+                                    color: '#fff',
+                                    align: 'center',
+                                    fontSize: 16
+                                }
                             },
-                            b: {
-                                color: '#fff',
-                                align: 'center',
-                                fontSize: 16
+                            formatter: function (params) {
+                                return "{a|" + params.value * (50 / 100) + "°}";
+                            },
+                            position: 'center',
+                            show: true,
+                            textStyle: {
+                                fontSize: '14',
+                                fontWeight: 'normal',
+                                color: '#fff'
                             }
-                        },
-                        formatter: function (params) {
-                            return "{a|" + params.value*(50/100) + "°}";
-                        },
-                        position: 'center',
-                        show: true,
-                        textStyle: {
-                            fontSize: '14',
-                            fontWeight: 'normal',
-                            color: '#fff'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#ef45ac',
+                            shadowColor: '#ef45ac',
+                            shadowBlur: 0
                         }
                     }
                 },
-                itemStyle: {
-                    normal: {
-                        color: '#ef45ac',
-                        shadowColor: '#ef45ac',
-                        shadowBlur: 0
+                {
+                    value: 40,
+                    name: 'invisible',
+                    itemStyle: {
+                        normal: {
+                            color: '#412a4e'
+                        },
+                        emphasis: {
+                            color: '#412a4e'
+                        }
                     }
                 }
-            }, 
-            {
-                value: 40,
-                name: 'invisible',
-                itemStyle: {
-                    normal: {
-                        color: '#412a4e'
-                    },
-                    emphasis: {
-                        color: '#412a4e'
-                    }
-                }
-            }
-        ]
+            ]
         }]
     }
 
@@ -1294,7 +1329,7 @@ $(function () {
                             }
                         },
                         formatter: function (params) {
-                            return "{a|" +Math.round(params.value*(120/100))  + "Kpa}";
+                            return "{a|" + Math.round(params.value * (120 / 100)) + "Kpa}";
                         },
                         position: 'center',
                         show: true,
@@ -1756,31 +1791,41 @@ $(function () {
             return result;
         })()
     };
-
-
     // 车间环境
-    maskQuantityChart.setOption(maskOption);
+    chartArr[0].option = maskOption
+    chartArr[0].setOption(maskOption);
+
     // kn95口罩机
-    equipmentChart.setOption(equipmentOption);
+    chartArr[1].option = equipmentOption
+    chartArr[1].setOption(equipmentOption);
     // 平面口罩机
-    equipmentChartTwo.setOption(equipmentOptionTwo);
+    chartArr[2].option = equipmentOptionTwo
+    chartArr[2].setOption(equipmentOptionTwo);
     // 耳带机1
-    equipmentChartThree.setOption(equipmentOptionThree);
+    chartArr[3].option = equipmentOptionThree
+    chartArr[3].setOption(equipmentOptionThree);
     // 耳带机2
-    equipmentChartFour.setOption(equipmentOptionFour);
+    chartArr[4].option = equipmentOptionFour
+    chartArr[4].setOption(equipmentOptionFour);
     // kn95口罩产量
-    knoutputChart.setOption(knoutputOption);
+    chartArr[5].option = knoutputOption
+    chartArr[5].setOption(knoutputOption);
     // 平面口罩产量
-    pmoutputChart.setOption(pmoutputOption)
-    // pmoutputChartrOne.setOption(pmoutputOptionOne);
-    // pmoutputChartrTwo.setOption(pmoutputOptionTwo);
-    // pmoutputChartrThree.setOption(pmoutputOptionThree);
+    chartArr[6].option = pmoutputOption
+    chartArr[6].setOption(pmoutputOption);
     // 车间环境
-    environmentChartOne.setOption(environmentOptionOne);
-    environmentChartTwo.setOption(environmentOptionTwo);
-    environmentChartThree.setOption(environmentOptionThree);
+    // 温度
+    chartArr[7].option = environmentOptionOne
+    chartArr[7].setOption(environmentOptionOne);
+    // 湿度
+    chartArr[8].option = environmentOptionTwo
+    chartArr[8].setOption(environmentOptionTwo);
+    // 大气压
+    chartArr[9].option = environmentOptionThree
+    chartArr[9].setOption(environmentOptionThree);
     // 单位产量
-    perUnitOutputChartOne.setOption(perUnitOutputOptionOne);
-    perUnitOutputChartTwo.setOption(perUnitOutputOptionTwo);
-
-})
+    chartArr[10].option = perUnitOutputOptionOne
+    chartArr[10].setOption(perUnitOutputOptionOne);
+    chartArr[11].option = perUnitOutputOptionTwo
+    chartArr[11].setOption(perUnitOutputOptionTwo);
+}
