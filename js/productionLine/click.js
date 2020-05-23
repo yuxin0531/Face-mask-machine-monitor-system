@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-14 17:13:28
- * @LastEditTime: 2020-05-22 11:26:38
+ * @LastEditTime: 2020-05-23 13:48:17
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\js\productionLine\click.js
@@ -38,6 +38,9 @@ function productionLineClick() {
         $(".black-mask-wrap").hide();
         // 获取时间数据
         console.log($('.room').val());
+        // 格式化时间
+        var day = $('.room').val().replace(/-/g,'')
+        console.log(day);
         
     })
     // 点击历史取消按钮

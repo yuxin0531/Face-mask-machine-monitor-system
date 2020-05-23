@@ -14,6 +14,7 @@
     <link rel="stylesheet/less" type="text/css" href="../less/loading.less">
     <!-- 公共头部样式 -->
     <link rel="stylesheet/less" type="text/css" href="../less/head.less">
+    <link rel="stylesheet" type="text/css" href="../img/iconfont.css">
     <!-- less -->
     <script src="../js/common/less.min.js"></script>
     <!-- echart -->
@@ -34,47 +35,50 @@
 </head>
 
 <body>
-    <!--因为display：none与display：flex不能同时作用同一个标签
-        所有class="none"的div用于显示隐藏loading效果 -->
-    <!-- loading -->
-    <div class="none">
-        <div class="loading-bgc">
-            <div class=loading-wrap>
-                <div class="loading">
-                    <div class="circle circle1">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="circle circle2">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="circle circle3">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="fonst">
-                    <div>loading...</div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- 面板背景 -->
     <div id="bgi-wrap">
-        <!-- 黑色遮罩层 -->
-        <div class="index-mask-wrap">
-            <div class="index-mask">
-                <!-- 监控显示 -->
-                <div class="monitoring-show"></div>
+        <!--因为display：none与display：flex不能同时作用同一个标签
+        所有class="none"的div用于显示隐藏loading效果 -->
+        <!-- loading -->
+        <i class="user-icon iconfont icon-user1"><span class="nick-name">白天鹅</i></span>
+        <i class="quit-icon iconfont icon-zhuxiaologout11"><span class="quit">注销</span></i>
+        <div class="none">
+            <div class="loading-bgc">
+                <div class=loading-wrap>
+                    <div class="loading">
+                        <div class="circle circle1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="circle circle2">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="circle circle3">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="fonst">
+                        <div>loading...</div>
+                    </div>
+                </div>
             </div>
         </div>
+        <!-- 黑色遮罩层 -->
+        <!-- <div class="index-mask-wrap">
+            <div class="index-mask"> -->
+                <!-- 监控显示 -->
+                <!-- <div class="monitoring-show"></div>
+            </div>
+        </div> -->
         <!-- 头部 -->
         <div class="head-wrap">
             <!-- logo和标题 -->
@@ -157,12 +161,12 @@
                 <div class="output-chart-wrap">
                     <!-- kn95 -->
                     <div class="knoutput-chart-wrap">
-                        <div class="knoutput-chart-title bold">KN95口罩产量</div>
+                        <div class="knoutput-chart-title bold">KN95口罩机单线产量</div>
                         <div class="knoutput-chart"></div>
                     </div>
                     <!-- 平面 -->
                     <div class="pmoutput-chart-wrap">
-                        <div class="pmoutput-chart-title bold">平面口罩机产量</div>
+                        <div class="pmoutput-chart-title bold">平面口罩机单线产量</div>
                         <div class="pmoutput-chart">
                             <!-- <div class="pmoutput-chart-one"></div>
                             <div class="pmoutput-chart-two"></div>
@@ -262,15 +266,21 @@
     <script type="text/javascript" src="../js/common/head.js"></script>
     <script>
         $(function () {
-            monitoringShow()
+            $('.quit-icon').click(function(){
+                window.location.href = './login.html';
+                // localStorage.removeItem('');
+                localStorage.clear();
+            });
+            $.loaded = false;
+            // monitoringShow();
             // 获取当前时间
-            getNowTime()
+            getNowTime();
             //初始化Echart
-            initEcharts()
+            initEcharts();
             // 预留函数
-            initIndexData()
+            initIndexData();
             // 获取监控列表
-            getMonitorList()
+            getMonitorList();
             //初始WS 服务数据
             $.jsm = new JSM();
             $.jsm.api.connect()
@@ -278,7 +288,7 @@
                 .error(function (evt) {
                     console.log("ERROR::" + evt.message)
                 });
-            $('.none').remove()
+
         })
     </script>
 </body>

@@ -1,5 +1,43 @@
 // 最外层背景图盒子样式
 #bgi-wrap {
+
+    // 返回主页按钮
+    .user-icon {
+        z-index: 4;
+        position: absolute;
+        top: 31px;
+        left: 66px;
+        font-size: 22px;
+        color: #fff;
+
+        // 用户名字体
+        .nick-name {
+            padding-left: 5px;
+            font-size: 18px;
+        }
+
+    }
+
+     // 注销
+     .quit-icon {
+        z-index: 4;
+        position: absolute;
+        top: 33px;
+        left: 180px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+
+        .quit {
+            padding-left: 5px;
+            font-size: 18px;
+            
+        }
+    }
+    .quit-icon:hover {
+        color: #c2c2c2;
+        // cursor: pointer;
+     }
     // 黑色遮罩层
     .index-mask-wrap {
         width: 100%;
@@ -8,23 +46,28 @@
         position: absolute;
         z-index: 2;
         display: none;
-        .index-mask{
+
+        .index-mask {
             width: 100%;
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         // 监控显示
-        .monitoring-show{
+        .monitoring-show {
             background-color: #000;
-            width:1200px;
-            height:700px;
+            width: 1200px;
+            height: 700px;
         }
     }
+
     background: url("../img/bigBgi.png") no-repeat;
     width: 1920px;
     height: 1080px;
+    position: absolute;
+
     // 头部属于公共样式放于head.less
     // 主体部分
     .main-wrap {
@@ -37,6 +80,7 @@
             height: 927px;
             width: 554px;
             float: left;
+
             // 生产数量
             .output-wrap {
                 width: 451px;

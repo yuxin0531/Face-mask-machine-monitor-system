@@ -119,8 +119,8 @@ function initProductionLineEcharts() {
                     radius: '100%',
                     startAngle: 225,
                     endAngle: -45,
-                    min: 0,
-                    max: 150,
+                    // min: 0,
+                    // max: 150,
                     axisLine: {
                         show: true,
                         lineStyle: {
@@ -276,6 +276,7 @@ function initProductionLineEcharts() {
                             ],
                         }
                     },
+                    
                     axisLabel: {
                         distance: 1,
                         textStyle: {
@@ -344,9 +345,19 @@ function initProductionLineEcharts() {
         [120, 200, 150, 80, 70, 110, 130,150,138,210,178,255,144,168,125,158,189,163,123,199,207,206,209,201]
     ];
     productionLineOutPutOption = {
+        // 鼠标悬停柱状图出现数据
+        tooltip: {
+            // 显示格式
+            formatter: '时间 : {b}点<br />产量 : {c}个',
+            // show:false,
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
         grid: {
-            left: "2%",
-            top: "2%",
+            left: "4%",
+            top: "10%",
             right: "0",
             bottom: "6%",
             width: "auto",
@@ -382,6 +393,10 @@ function initProductionLineEcharts() {
             axisLabel: {
                 // show: false,
                 color: 'rgba(255,255,255, 0.5)',
+                 // 格式化y轴刻度
+                // formatter: function (value) {
+                //     return (value / 1000) + "(千)"
+                // }
             },
             splitLine: {
                 show: true,
@@ -391,6 +406,8 @@ function initProductionLineEcharts() {
                     width: 2,
                 },
             },
+            
+       
         },
         series: [{
                 

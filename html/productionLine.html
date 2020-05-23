@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-05-12 08:39:47
- * @LastEditTime: 2020-05-22 15:25:24
+ * @LastEditTime: 2020-05-23 08:50:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\html\productionLine.html
@@ -192,14 +192,15 @@
     <script type="text/javascript" src="../js/productionLine/downLaydateConfig.js"></script>
     <script>
         $(function () {
+            $.loaded = false;
              // 获取当前时间
-             getNowTime()
+             getNowTime();
             // 初始化产线的图表数据
-            initProductionLineEcharts()
+            initProductionLineEcharts();
             // 导出的日期选择插件的配置项文件
-            downLaydateConfig()
+            downLaydateConfig();
             // 产线页面的所有点击事件
-            productionLineClick()
+            productionLineClick();
             //请求数据
             var ws = new JSM.WS();
             //  获取?后面的参数
@@ -227,8 +228,7 @@
             setInterval(function () {
                 ws.send(`LINEON:${ch}`);
             }, 3000);
-            // 删除loading
-            $('.none').remove()
+           
         })
     </script>
 </body>

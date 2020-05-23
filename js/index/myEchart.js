@@ -1,6 +1,5 @@
 //全局变量 ，封装Echarts
 var chartArr = [];
-
 function initEcharts() {
     // 初始化
     //声明Echarts对象
@@ -18,6 +17,15 @@ function initEcharts() {
     chartArr[11] = echarts.init(document.getElementsByClassName('perUnitOutput-chart-two')[0]);
     // 口罩入库数量图表
     maskOption = {
+        grid: {
+            left: "100",
+            // top: "0",
+            // right: "0",
+            // bottom: "0",
+            // width: "auto",
+            // height: "auto",
+            // containLabel: true
+        },
         legend: {
             data: ['实际入库', '目标入库'],
             textStyle: { // 图列内容样式
@@ -58,7 +66,7 @@ function initEcharts() {
             },
         },
         yAxis: {
-            name: 'K',
+            // name: 'K',
             splitLine: {
                 show: true,
                 // 在坐标轴里的线
@@ -76,7 +84,11 @@ function initEcharts() {
                 }
             },
 
-
+            axisLabel: {
+                formatter: function (value) {
+                    return (value / 1000) + "(千)"
+                }
+            }
         },
 
 
@@ -101,8 +113,8 @@ function initEcharts() {
                 },
                 label: {
                     show: true,
-                    position: [-30, 0],
-                    color: '#868e9c',
+                    position: [-30, -18],
+                    color: '#50a4db',
                     fontSize: 14,
                 }
             },
@@ -133,7 +145,7 @@ function initEcharts() {
                 },
                 label: {
                     show: true,
-                    position: [40, 0],
+                    position: [20, -18],
                     color: '#fff',
                     fontSize: 14,
                 }
@@ -531,7 +543,7 @@ function initEcharts() {
     //   })
 
     chartArr[5].on('click', function (params) {
-        var ch = params.dataIndex+4
+        var ch = params.dataIndex + 4
         // console.log(params.dataIndex)
         window.location.href = `../html/productionLine.html?ch=${ch}&type=0`
     })
@@ -696,7 +708,7 @@ function initEcharts() {
     };
     chartArr[6].on('click', function (params) {
         // console.log(params.componentIndex)
-        var ch =params.componentIndex+1
+        var ch = params.componentIndex + 1
         window.location.href = `../html/productionLine.html?ch=${ch}&type=1`
     })
 

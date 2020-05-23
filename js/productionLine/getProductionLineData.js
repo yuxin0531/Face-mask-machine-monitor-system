@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-13 15:13:45
- * @LastEditTime: 2020-05-22 09:54:46
+ * @LastEditTime: 2020-05-23 08:44:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \systemc:\Users\yuxin\Desktop\Face mask machine monitoring system\js\productionLine\getEchartData.js
@@ -39,6 +39,12 @@ function setProduvtionLineValue(evt){
         // productionLineChartArr[2].series[1].data = data.hourQty
         // productionLineOutPutChart.setOption(productionLineChartArr[2]);
         // $('.none').remove()
+        // 数据全部加载移除loading
+        if(!$.loaded) {
+            $.loaded = true;
+             // 删除loading
+             $('.none').remove()
+        };
        
     }
      

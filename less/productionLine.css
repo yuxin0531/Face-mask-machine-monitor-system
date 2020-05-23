@@ -266,12 +266,12 @@
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-bottom-wrap .productionLine-hourly-output {
   margin: 0 auto;
-  width: 1476px;
+  width: 1486px;
   height: 100%;
 }
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-bottom-wrap .export-btn,
 .productionLine-bgi-wrap .productionLine-main-wrap .productionLine-main-bottom-wrap .history-btn {
-  width: 164px;
+  width: 130px;
   height: 36px;
   line-height: 36px;
   text-align: center;

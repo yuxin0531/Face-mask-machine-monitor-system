@@ -10,7 +10,7 @@
 //赋值
 function setElementValue(evt) {
 	var data = evt.data;
-	
+	var StockQtyArr =[];
 	$('.kn-output-num').text(data.ProdKN95)
 	// 平面口罩生产数量
 	$('.output-num').text(data.ProdpmKZ)
@@ -22,9 +22,23 @@ function setElementValue(evt) {
 	
 	// 口罩入库数量
 	chartArr[0].option = maskOption;
-	
+	// for(i=0;i<data.StockQty.actual.length;i++){
+	// 	StockQtyArr.push(data.StockQty.actual[i]);
+	// 	StockQtyArr.push(data.StockQty.target[i]);
+	// }
+	// var StockQtMax = Math.max(...StockQtyArr)
+	// if(StockQtMax<100000){
+	// 	StockQtMax=StockQtMax
+	// }else if(StockQtMax>100000&&StockQtMax<1000000){
+	// 	StockQtMax = StockQtMax/1000 +'千'
+	// } else if(StockQtMax>1000000&&StockQtMax<10000000){
+	// 	StockQtMax = StockQtMax/10000 +'万'
+	// } else if(StockQtMax>10000000&&StockQtMax<100000000){
+	// 	StockQtMax = StockQtMax/100000 +'十万'
+	// }
 	chartArr[0].option.series[0].data = data.StockQty.actual;
 	chartArr[0].option.series[1].data = data.StockQty.target;
+	// chartArr[0].yAxis.axisLabel.formatter(StockQtMax)
 	chartArr[0].setOption(chartArr[0].option);
 
 	// 设备稼动率
@@ -95,6 +109,12 @@ function setElementValue(evt) {
 	perUnitOutputOptionTwo.series[1].data[0].value = data.unitQty.pmKZ
 	perUnitOutputOptionTwo.series[1].axisLine.lineStyle.color[0][0] = data.unitQty.pmKZ / 150
 	chartArr[11].setOption(perUnitOutputOptionTwo);
+
+	// 数据加载完成移除loaded
+	if(!$.loaded){
+		$.loaded = true;
+		$('.none').remove();
+	}
 }
 // 预留函数
 function initIndexData() {

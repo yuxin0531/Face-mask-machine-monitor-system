@@ -2,6 +2,35 @@
   background: url("../img/bigBgi.png") no-repeat;
   width: 1920px;
   height: 1080px;
+  position: absolute;
+}
+#bgi-wrap .user-icon {
+  z-index: 4;
+  position: absolute;
+  top: 31px;
+  left: 66px;
+  font-size: 22px;
+  color: #fff;
+}
+#bgi-wrap .user-icon .nick-name {
+  padding-left: 5px;
+  font-size: 18px;
+}
+#bgi-wrap .quit-icon {
+  z-index: 4;
+  position: absolute;
+  top: 33px;
+  left: 180px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+#bgi-wrap .quit-icon .quit {
+  padding-left: 5px;
+  font-size: 18px;
+}
+#bgi-wrap .quit-icon:hover {
+  color: #c2c2c2;
 }
 #bgi-wrap .index-mask-wrap {
   width: 100%;
